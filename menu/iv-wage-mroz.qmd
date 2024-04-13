@@ -1,0 +1,10 @@
+---
+title: "IV Application (I)"
+subtitle: "Mother and father as IVs for education"
+---
+
+## Case Description
+
+### Research Interests
+
+With data set `wooldridge::mroz`, researchers were interest in the return (`log(Wage)`) to education (`edu`) for married women.

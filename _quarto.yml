@@ -1,5 +1,37 @@
 project:
-  title: "course-emiii-accompany"
+  type: website
+  output-dir: _site
 
+knitr: true
+author: Kevin Hu
+execute:
+  freeze: auto
 
+website:
+  title: "EM III Accompany"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Introduction
+      - href: menu/projects-intro.qmd
+        text: Projects
+  
+  sidebar:
+    - title: "Projects"
+      style: "docked"
+      #background: light
+      collapse-level: 2
+      contents:
+        # navigation items
+        - menu/projects-intro.qmd
+        - section: "Slides"
+          contents:
+            - menu/iv-wage-mroz.qmd
+            - menu/iv-wage-card.qmd
+
+format:
+  html:
+    theme: [sandstone, scss/_variables.scss]
+    css: scss/styles.css
+    toc: true
 
