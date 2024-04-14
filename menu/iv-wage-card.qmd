@@ -13,7 +13,6 @@ library(magrittr)
 library(tibble)
 ```
 
-
 ## Case Description
 
 Research Interests:
