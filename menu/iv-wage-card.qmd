@@ -15,8 +15,6 @@ library(tibble)
 
 ## Case Description
 
-<!-- test -->
-
 Research Interests:
 
 With data set `Card1995.dta`, researchers were interest in the return (`log(Wage)`) to education (`edu`) .

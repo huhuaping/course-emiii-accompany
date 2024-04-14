@@ -4,7 +4,7 @@ title: "Introduction"
 
 This site is served for project of "Econometrics III Accompany", with which My students in my " Advanced Econometrics" class can do some programming exercises and make class examples reproducible.
 
-
+<!-- test gitee-->
 
 ::: {.callout-note}
 
