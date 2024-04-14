@@ -2,10 +2,21 @@
 title: "Introduction"
 ---
 
-## Quarto
+This site is served for project of "Econometrics III Accompany", with which My students in my " Advanced Econometrics" class can do some programming exercises and make class examples reproducible.
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-```{r}
-1 + 1
-```
+
+::: {.callout-note}
+
+- This project is under building and will irritated regularly.
+
+- I create a project repository(<https://github.com/huhuaping/course-emiii-accompany>) and host it at <https://github.com/> publicly.
+
+:::
+
+
+Kevin Hu (胡华平)
+
+Northwest A&F University
+
+Yangling city

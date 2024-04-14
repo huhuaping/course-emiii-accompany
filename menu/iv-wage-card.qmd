@@ -3,8 +3,85 @@ title: "IV Application (II)"
 subtitle: "College proximity as IVs for education"
 ---
 
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+library(magrittr)
+library(tibble)
+```
+
+
 ## Case Description
 
-### Research Interests
+Research Interests:
 
-With data set `wooldridge::mroz`, researchers were interest in the return (`log(Wage)`) to education (`edu`) for married women.
+With data set `Card1995.dta`, researchers were interest in the return (`log(Wage)`) to education (`edu`) .
+
+In the wage example (`wage`, or log wage `lwage`), Let's consider some of the variables shown below (see @tbl-vars ).
+
+```{r}
+#| label: tbl-vars
+#| echo: false
+
+vars_sel <- c(
+  "obs","lwage",
+  "edu", 
+  "exp", "exp2",
+  "black", "south",  "urban",
+  "college",  
+  "public", "private",
+  "age", "age2",
+  "momedu", "dadedu")
+
+label_def <-c(
+  "index",
+  "quantity variable: log of wage",
+  "quantity variable: education years", 
+  "quantity variable: working years", "quantity variable: square working years/100",
+  "dummy: 1=black; 0=nonblack", 
+  "dummy: 1=southern area; 0= other",  
+  "dummy: 1=live in urban; 0= other",
+  "dummy: 1=college nearby; 0= other",  
+  "dummy: 1=public college nearby; 0= other",
+  "dummy: 1=private college nearby; 0= other",
+  "quantity variable: age (years)", "quantity variable: age square /100",
+  "quantity variable: mother' education years", 
+  "quantity variable: father' education years")
+
+label_eng <-c(vars_sel)
+df_vars <- tibble("variable" = label_eng,
+                  "definition" = label_def)
+
+df_vars %>%
+  knitr::kable(., align = 'c', caption = 'variables and definition')
+```
+
+## Reproducible Sources
+
+**Hansen, B.  Econometrics[M].** Princeton: Princeton University Press, 2022. **Chapter 12:** Instrumental Variables. 
+
+- Table 12.1: Instrumental Variable Wage Regressions
+
+- Table 12.2: Reduced Form Regressions
+
+## Learning Targets
+
+a. Understand the nature of `Endogeneity`.
+
+b. Know the steps of running TSLS method.
+
+c. Be familiar with R package function `systemfit::systemfit()` and `ARE::ivreg()`.
+
+## Exercise Materials 
+
+You can find all the exercise materials in this project under the file directory:
+
+```{r}
+#| echo: false
+# show files tree
+fs::dir_tree(path = here::here("IV-wage-card"),
+             recurse = TRUE)
+```

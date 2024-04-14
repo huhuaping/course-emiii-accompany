@@ -5,6 +5,387 @@ subtitle: "Mother and father as IVs for education"
 
 ## Case Description
 
-### Research Interests
+**Research Interests**: 
 
-With data set `wooldridge::mroz`, researchers were interest in the return (`log(Wage)`) to education (`edu`) for married women.
+- With data set `wooldridge::mroz`, researchers were interest in the return (`log(Wage)`) to education (`edu`) for married women.
+
+- use both $motheduc$ or/and $fatheduc$ as instruments for $educ$.
+
+
+## Reproducible Sources
+
+a. **Wooldridge, J.M. Introductory econometrics: a modern approach[M].** Seventh edition. Australia: Cengage, 2020.
+
+a. **Hill C, Griffiths W E, Lim G C. Principles of econometrics[M]**. Fifth edition. NJ: John Wiley & Sons, 2018.
+
+b. **Colonescu C. Principles of Econometrics with R (2016)** <https://bookdown.org/ccolonescu/RPoE4/>
+
+
+
+## Learning Targets
+
+a. Understand the nature of `Endogeneity`.
+
+b. Know the steps of running TSLS method.
+
+c. Be familiar with R package function `systemfit::systemfit()` and `ARE::ivreg()`.
+
+d. Testing **Instrument validity** (Weak instrument) both using **Restricted F-test** and **J-test**.
+
+e. Testing **Regressor endogeneity** by using **Hausman test**.
+
+
+## Exercise Materials 
+
+You can find all the exercise materials in this project under the file directory:
+
+```{r}
+#| echo: false
+# show files tree
+fs::dir_tree(path = here::here("IV-wage-mroz"),
+             recurse = TRUE)
+```
+
+
+## OLS Estimation
+
+Consider the following "error specified" wage model:
+
+$$\begin{align}
+lwage_i = \beta_1 +\beta_2educ_i + \beta_3exper_i +\beta_4expersq_i + e_i
+\end{align}$$
+
+## Two-stage least squares(TSLS): the solutions
+
+
+We can conduct the **TSLS** procedure with following two solutions:
+
+- use the **"Step-by-Step solution"** methods without variance correction.
+
+- use the  **"Integrated solution"** with variance correction.
+
+
+(1) By doing the **Step-by-Step solution**, we will understand the basic procedure of Two-stage least squares(TSLS). But DO NOT use **Step-by-Step solution** solution in your paper! It is only for teaching purpose here.
+
+(2) We need a **Integrated solution** for following reasons:
+
+- We should obtain the correct estimated error for test and inference.
+
+- We should avoid tedious steps in the former **Step-by-Step** routine. When the model contains more than one endogenous regressors and there are lots available instruments, then the step-by-step solution will get extremely tedious.
+
+In `R` ecosystem, we have two packages to execute the  integrated solution:
+
+- We can use `systemfit` package function `systemfit::systemfit()`.
+
+- Or we may use `ARE` package function `ARE::ivreg()`.
+
+Both of these tools can conduct the integrated solution, and will adjust the variance of estimators automatically. 
+
+
+## TWLS (Step-by-step solution): `mothereduc` as IV
+
+For the **Step-by-step solution**, let's consider using mother education(`mothereduc`) as instrument variable for education(`educ`).
+
+we can obtain the fitted variable $\widehat{educ}$ by conduct the following **stage 1** OLS regression
+
+$$\begin{align}
+\widehat{educ} = \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4mothereduc 
+\end{align}$$
+
+In the second stage, we will regress log(wage) on the $\widehat{educ}$  from stage 1 and experience (`exper`)and its quadratic term (`expersq`).
+
+
+$$\begin{align}
+lwage = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}
+\end{align}$$
+
+
+## TWLS (Integrated solution): `mothereduc` as IV
+
+Let's consider using $motheduc$ as the only instrument for $educ$ by using the **Integrated solution**.
+
+$$\begin{cases}
+  \begin{align}
+  \widehat{educ} &= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4motheduc  && \text{(stage 1)}\\
+  lwage & = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+In `R` ecosystem, we have two packages to execute the  integrated solution:
+
+- We can use `systemfit` package function `systemfit::systemfit()`.
+
+- Or we may use `ARE` package function `ARE::ivreg()`.
+
+Both of these tools can conduct the integrated solution, and will adjust the variance of estimators correctly and automatically. 
+
+
+## TWLS (Integrated solution): `mothereduc` as IV
+
+Now let's consider using $fatheduc$ as the only instrument for $educ$.
+
+$$\begin{cases}
+  \begin{align}
+  \widehat{educ} &= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4fatheduc  && \text{(stage 1)}\\
+  lwage & = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+We will repeat the whole procedure by using  `R` function `systemfit::systemfit()` or `ARE::ivreg()` as we have done before.
+
+## TWLS (Integrated solution): `mothedu` and `fatheduc` as IV
+
+Also, we can use both $motheduc$ and $fatheduc$ as instruments for $educ$.
+
+$$\begin{cases}
+  \begin{align}
+  \widehat{educ} &= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  && \text{(stage 1)}\\
+  lwage & = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+We will repeat the whole procedure by using  `R` function `systemfit::systemfit()` or `ARE::ivreg()` as we have done before.
+
+## Solutions comparison: a glance
+
+Until now, we obtain totally **Five** estimation results with different model settings or solutions:
+
+a. Error specification model with OLS regression directly.
+
+b. (**Step-by-Step solution**) Explicit 2SLS estimation **without** variance correction (IV regression step by step with only $matheduc$ as instrument).
+
+c. (**Integrated solution**) Dedicated IV estimation **with** variance correction ( using `R` tools of `systemfit::systemfit()` or `ARE::ivreg()`).
+
+- The IV model with only 
+$motheduc$ as instrument for endogenous variable $edu$
+
+- The IV model with only 
+$fatheduc$ as instrument for endogenous variable $edu$
+
+- The IV model with  both 
+$motheduc$ and 
+$fatheduc$ as instruments for endogenous variable $edu$
+
+After the empirical comparison, we can push to further thinking with these results.
+
+- Which estimation is the best? 
+
+- How to judge and evaluate different instrument choices? 
+
+## Testing Instrument validity
+
+Consider the general model
+
+$$\begin{align}
+Y_{i}=\beta_{0}+\sum_{j=1}^{k} \beta_{j} X_{j i}+\sum_{s=1}^{r} \beta_{k+s} W_{ri}+\epsilon_{i}
+\end{align}$$
+
+> - $Y_{i}$ is the dependent variable
+- $\beta_{0}, \ldots, \beta_{k+1}$ are $1+k+r$ unknown regression coefficients
+- $X_{1 i}, \ldots, X_{k i}$ are $k$ endogenous regressors
+- $W_{1 i}, \ldots, W_{r i}$ are $r$ exogenous regressors which are uncorrelated with $u_{i}$
+- $u_{i}$ is the error term
+- $Z_{1 i}, \ldots, Z_{m i}$ are $m$ instrumental variables
+
+As we know, valid instruments should satisfy both **Relevance condition** and **Exogeneity condition**.
+
+$$
+\begin{aligned}
+&E\left(Z_{i} X_{i}^{\prime}\right) \neq 0 & \quad \text{(Relevance)}\\
+&E\left(Z_{i} \epsilon_{i}\right)=0 &\quad \text{(Exogeneity)}
+\end{aligned}
+$$
+
+### Weak instrument: Restricted F-test
+
+In case with a **single** endogenous regressor, we can take the  **F-test** to check the **Weak instrument**.
+
+The basic idea of the F-test is very simple:
+
+If the estimated coefficients of **all instruments** in the **first-stage** of a 2SLS estimation are **zero**, the instruments do not explain any of the variation in the 
+$X$ which clearly violates the relevance assumption. 
+
+We may use the following rule of thumb:
+
+- Conduct the **first-stage regression** of a 2SLS estimation
+
+$$\begin{align}
+X_{i}=\hat{\gamma}_{0}+\hat{\gamma}_{1} W_{1 i}+\ldots+\hat{\gamma}_{p} W_{p i}+ \hat{\theta}_{1} Z_{1 i}+\ldots+\hat{\theta}_{q} Z_{q i}+v_{i} \quad \text{(3)}
+\end{align}$$
+
+- Test the restricted joint hypothesis 
+$H_0: \hat{\theta}_1=\ldots=\hat{\theta}_q=0$ by compute the
+$F$-statistic. 
+
+- If the
+$F$-statistic is less than  critical value, the instruments are **weak**. 
+
+The rule of thumb is easily implemented in `R`. Run the first-stage regression using `lm()` and subsequently compute the restricted $F$-statistic by `R` function of `car::linearHypothesis()`. 
+
+For all  three IV model, we can test instrument(s) relevance respectively.
+
+$$\begin{align}
+educ &= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_1motheduc  +v 
+&& \text{(relevance test 1)}\\
+educ &= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_2fatheduc +v  
+&& \text{(relevance test 2)} \\
+educ &= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_1motheduc + \theta_2fatheduc +v  
+&& \text{(relevance test 3)}
+\end{align}$$
+
+### Weak instrument: Cragg-Donald test
+
+The former test for weak instruments might be unreliable with **more than** one endogenous regressor, though, because there is indeed one
+$F$-statistic for each endogenous regressor. 
+
+An alternative is the **Cragg-Donald test** based on the following statistic:
+
+$$\begin{align}
+F=\frac{N-G-B}{L} \frac{r_{B}^{2}}{1-r_{B}^{2}}
+\end{align}$$
+
+where:
+
+- $G$ is the number of exogenous regressors;
+
+- $B$ is the number of endogenous regressors;
+
+- $L$ is the number of external instruments;
+
+- $r_B$ is the lowest canonical correlation.
+
+> **Canonical correlation** is a measure of the correlation between the endogenous and the exogenous variables, which can be calculated by the function `cancor()` in  `R`.
+
+
+The critical value can be found in table 10E.1 at: Hill C, Griffiths W, Lim G. Principles of econometrics[M]. John Wiley \& Sons, 2018.
+
+### Instrument Exogeneity: J-test
+
+**Instrument Exogeneity** means all 
+$m$ instruments must be uncorrelated with the error term,
+
+$$Cov{(Z_{1 i}, \epsilon_{i})}=0; \quad \ldots; \quad Cov{(Z_{mi}, \epsilon_{i})}=0.$$
+
+- In the context of the simple IV estimator, we will find that the exogeneity requirement **can not** be tested. (Why?)
+
+- However, if we have more instruments than we need, we can effectively test whether **some of** them are uncorrelated with the structural error.
+
+Under **over-identification** 
+$(m>k)$, consistent IV estimation with (multiple) different combinations of instruments is possible. 
+
+> If instruments are exogenous, the obtained estimates should be **similar**. 
+
+> If estimates are very **different**, some or all instruments may .red[not] be exogenous.
+
+The **Overidentifying Restrictions Test** (**J test**) formally check this.
+
+- The null hypothesis is Instrument Exogeneity.
+
+$$H_{0}: E\left(Z_{h i} \epsilon_{i}\right)=0, \text { for all } h=1,2, \dots, m$$
+
+The **overidentifying restrictions test** (also called the  $J$-test, or **Sargan test**) is an approach to test the hypothesis that the additional instruments are exogenous.
+
+Procedure of overidentifying restrictions test is:
+
+- **Step 1**: Compute the **IV regression residuals** :
+
+$$\widehat{\epsilon}_{i}^{IV}=Y_{i}-\left(\hat{\beta}_{0}^{ IV}+\sum_{j=1}^{k} \hat{\beta}_{j}^{IV} X_{j i}+\sum_{s=1}^{r} \hat{\beta}_{k+s}^{IV} W_{s i}\right)$$
+
+- **Step 2**: Run the **auxiliary regression**: regress the IV residuals on instruments and exogenous regressors. And test the joint hypothesis 
+$H_{0}: \alpha_{1}=0, \ldots, \alpha_{m}=0$
+
+$$\widehat{\epsilon}_{i}^{IV}=\theta_{0}+\sum_{h=1}^{m} \theta_{h} Z_{h i}+\sum_{s=1}^{r} \gamma_{s} W_{s i}+v_{i} \quad \text{(2)}$$
+
+- **Step3**: Compute the **J statistic**:
+$J=m F$
+
+> where 
+$F$ is the F-statistic of the 
+$m$ restrictions 
+$H_0: \theta_{1}=\ldots=\theta_{m}=0$ in eq(2)
+
+Under the **null hypothesis**, 
+$J$ statistic is distributed as 
+$\chi^{2}(m-k)$ approximately for large samples.
+
+$$\boldsymbol{J} \sim \chi^{2}({m-k})$$
+
+> IF $J$ is **less** than **critical value**, it means that all instruments are .red[ex]ogenous. 
+
+> IF $J$ is **larger** than **critical value**, it mean that some of the instruments are .red[en]ogenous. 
+
+- We can apply the  $J$-test by using `R` function `linearHypothesis()`.
+
+Again, we can use both $matheduc$ and $fatheduc$ as instruments for $educ$.
+
+Thus, the IV model is over-identification, and we can test the exogeneity of both these two instruments by using **J-test**.
+
+The 2SLS model will be set as below.
+
+$$\begin{cases}
+  \begin{align}
+  \widehat{educ} &= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  && \text{(stage 1)}\\
+  lwage & = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+And the auxiliary regression should be
+
+$$\begin{align}
+  \hat{\epsilon}^{IV} &= \hat{\alpha}_1 +\hat{\alpha}_2exper + \hat{\alpha}_3expersq +\hat{\theta}_1motheduc + \hat{\theta}_2fatheduc  + v && \text{(auxiliary model)}
+  \end{align}$$
+  
+Finally, We can calculate J-statistic by hand or obtain it by using special tools.
+
+
+- Calculate J-statistic by hand 
+
+- using tools of  `linearHypothesis(.,  test = "Chisq")` 
+
+## Testing Regressor endogeneity
+
+How can we test the regressor endogeneity?
+
+Since OLS is in general more efficient than IV (recall that if Gauss-Markov assumptions hold OLS is BLUE), we don't want to use IV when we don't need to get the consistent estimators. 
+
+Of course, if we really want to get a consistent estimator, we also need to check whether the endogenous regressors are really **endogenous** in the model.
+
+So we should test following hypothesis:
+
+$$H_{0}: \operatorname{Cov}(X, \epsilon)=0 \text { vs. } H_{1}: \operatorname{Cov}(X, \epsilon) \neq 0$$
+
+###  Hausman test
+
+`Hausman` tells us that we should use OLS if we fail to reject 
+$H_{0}$. And we should use IV estimation if we reject 
+$H_{0}$ 
+
+Let's see how to construct a `Hausman test`. While the idea is very simple.
+
+- If 
+$X$ is **.red[ex]ogenous** in fact, then both OLS and IV are consistent, but OLS estimates are more efficient than IV estimates.
+
+- If 
+$X$ is **.red[en]dogenous** in fact, then the results from OLS estimators are different, while results obtained by IV (eg. 2SLS) are consistent.
+
+We can compare the difference between estimates computed using both OLS and IV. 
+
+- If the difference is **small**, we can conjecture that both OLS and IV are consistent and the small difference between the estimates is not systematic. 
+- If the difference is **large** this is due to the fact that OLS estimates are not consistent. We should use IV in this case.
+
+Again, we use both $matheduc$ and $fatheduc$ as instruments for $educ$ in our IV model setting.
+
+$$\begin{cases}
+  \begin{align}
+  \widehat{educ} &= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  && \text{(stage 1)}\\
+  lwage & = \hat{\alpha}_1 +\hat{\alpha}_2\widehat{educ} + \hat{\alpha}_3exper +\hat{\alpha}_4expersq + \hat{\epsilon}  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+::: {.callout-tips}
+
+In `R`, we can use IV model diagnose tool to check the Hausman test results.
+
+In fact, `R` function `summary(lm_iv_mf, diagnostics = TRUE)` by setting `diagnostics = TRUE` will give you these results.
+
+:::

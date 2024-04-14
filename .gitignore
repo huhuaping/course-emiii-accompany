@@ -9,6 +9,6 @@
 /.quarto/
 
 # publication
-_site/**
+#_site/**
 
 

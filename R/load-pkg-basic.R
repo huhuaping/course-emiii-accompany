@@ -4,6 +4,8 @@
 library(rmarkdown)
 library(renv)       # package management
 library(yaml)       # quarto project
+library(fs)         # file system management
+library(here)       # relative path
 
 # basic pkgs
 library(tidyverse)  # most useful
@@ -16,11 +18,12 @@ library(foreign)   # for stata file
 
 
 # viz
-library("ggplot2")       # graph
-library("DT")            # DT table
-library("webshot2")      # snapshot
-library("htmlwidgets")   # interactivity
-#library("fontawesome")
+library(ggplot2)       # graph
+library(DT)            # DT table
+library(scales)        # tidy numbers
+library(webshot2)      # snapshot
+library(htmlwidgets)   # interactivity
+#library(fontawesome)
 
 
 # github repo

@@ -2,8 +2,7 @@
 source("R/load-pkg-basic.R")
 
 # load other necessary packages 
-library("wooldridge")  # datasets
-
+library("wooldridge")  # data sets
 
 mroz <- wooldridge::mroz %>%
   as_tibble() %>%
@@ -43,7 +42,7 @@ tab_vars %>%
             )
   )
 
-### ==== Wage example: Raw dataset====
+### ==== Wage example: Raw data set====
 mroz <- mroz %>%
   select(lwage, educ, exper, expersq, fatheduc, motheduc) %>%
   add_column(id=1:n, .before = "lwage") 
@@ -72,17 +71,18 @@ mroz %>%
 ### ==== Wage example: use OLS method directly====
 
 mod_origin <- formula(lwage ~ educ +exper+expersq)
-ols_origin <- lm(formula = mod_origin, data = mroz
-                 )
+ols_origin <- lm(formula = mod_origin, 
+                 data = mroz)
+summary(ols_origin)
 
-
-## ==== ## 17.4 Two-stage least squares method  ====
+# ==== ## 17.4 Two-stage least squares method  ====
 
 ### ====Step-by-step solution ====
 
 ### stage 1 OLS estimate ====
 mod_step1 <- formula(educ~exper + expersq + motheduc)  # modle setting
 ols_step1 <- lm(formula = mod_step1, data = mroz)  # OLS estimation
+summary(ols_step1)
 
 ### stage 1 OLS predicted values ====
 mroz_add <- mroz %>% mutate(educHat = fitted(ols_step1)) # add fitted educ to data set
@@ -90,12 +90,14 @@ mroz_add <- mroz %>% mutate(educHat = fitted(ols_step1)) # add fitted educ to da
 ### stage 2 model ====
 mod_step2 <- formula(lwage~educHat + exper + expersq)
 ols_step2 <- lm(formula = mod_step2, data = mroz_add)
+summary(ols_step2)
 
 ## ==== Integrated solution ====
 
 ### ==== IV `mothereduc`:  using `systemfit::systemfit()` ====
 # load pkg
 require(systemfit)
+
 # set two models
 eq_1 <- educ ~  exper + expersq + motheduc
 eq_2 <- lwage ~ educ + exper + expersq 
@@ -196,7 +198,7 @@ tbl_compare <- stargazer(
 )
 
 
-## ==== 17.5 Testing Instrument validity ====
+# ==== 17.5 Testing Instrument validity ====
 
 ### ==== three OLS models  ====
 
@@ -302,7 +304,7 @@ f <- m -1
 # compute correct p-value for J-statistic
 (pchi <- pchisq(jtest_chi, df = f, lower.tail = FALSE))
 
-## ==== 17.6 Testing Regressor endogeneity====
+# ==== 17.6 Testing Regressor endogeneity====
 
 ### ==== Wage example: Hausman test (full model diagnose) ====
 

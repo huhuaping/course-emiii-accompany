@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Hu">
+
+<title>EM III Accompany - IV Application (I)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../scss/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">EM III Accompany</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Preface</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../menu/projects-intro.html" aria-current="page"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">Tasks</a></li><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">IV Application (I)</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../menu/projects-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Declare</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Tasks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../menu/iv-wage-mroz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">IV Application (I)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../menu/iv-wage-card.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IV Application (II)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#case-description" id="toc-case-description" class="nav-link active" data-scroll-target="#case-description">Case Description</a></li>
+  <li><a href="#reproducible-sources" id="toc-reproducible-sources" class="nav-link" data-scroll-target="#reproducible-sources">Reproducible Sources</a></li>
+  <li><a href="#learning-targets" id="toc-learning-targets" class="nav-link" data-scroll-target="#learning-targets">Learning Targets</a></li>
+  <li><a href="#exercise-materials" id="toc-exercise-materials" class="nav-link" data-scroll-target="#exercise-materials">Exercise Materials</a></li>
+  <li><a href="#ols-estimation" id="toc-ols-estimation" class="nav-link" data-scroll-target="#ols-estimation">OLS Estimation</a></li>
+  <li><a href="#two-stage-least-squarestsls-the-solutions" id="toc-two-stage-least-squarestsls-the-solutions" class="nav-link" data-scroll-target="#two-stage-least-squarestsls-the-solutions">Two-stage least squares(TSLS): the solutions</a></li>
+  <li><a href="#twls-step-by-step-solution-mothereduc-as-iv" id="toc-twls-step-by-step-solution-mothereduc-as-iv" class="nav-link" data-scroll-target="#twls-step-by-step-solution-mothereduc-as-iv">TWLS (Step-by-step solution): <code>mothereduc</code> as IV</a></li>
+  <li><a href="#twls-integrated-solution-mothereduc-as-iv" id="toc-twls-integrated-solution-mothereduc-as-iv" class="nav-link" data-scroll-target="#twls-integrated-solution-mothereduc-as-iv">TWLS (Integrated solution): <code>mothereduc</code> as IV</a></li>
+  <li><a href="#twls-integrated-solution-mothereduc-as-iv-1" id="toc-twls-integrated-solution-mothereduc-as-iv-1" class="nav-link" data-scroll-target="#twls-integrated-solution-mothereduc-as-iv-1">TWLS (Integrated solution): <code>mothereduc</code> as IV</a></li>
+  <li><a href="#twls-integrated-solution-mothedu-and-fatheduc-as-iv" id="toc-twls-integrated-solution-mothedu-and-fatheduc-as-iv" class="nav-link" data-scroll-target="#twls-integrated-solution-mothedu-and-fatheduc-as-iv">TWLS (Integrated solution): <code>mothedu</code> and <code>fatheduc</code> as IV</a></li>
+  <li><a href="#solutions-comparison-a-glance" id="toc-solutions-comparison-a-glance" class="nav-link" data-scroll-target="#solutions-comparison-a-glance">Solutions comparison: a glance</a></li>
+  <li><a href="#testing-instrument-validity" id="toc-testing-instrument-validity" class="nav-link" data-scroll-target="#testing-instrument-validity">Testing Instrument validity</a>
+  <ul class="collapse">
+  <li><a href="#weak-instrument-restricted-f-test" id="toc-weak-instrument-restricted-f-test" class="nav-link" data-scroll-target="#weak-instrument-restricted-f-test">Weak instrument: Restricted F-test</a></li>
+  <li><a href="#weak-instrument-cragg-donald-test" id="toc-weak-instrument-cragg-donald-test" class="nav-link" data-scroll-target="#weak-instrument-cragg-donald-test">Weak instrument: Cragg-Donald test</a></li>
+  <li><a href="#instrument-exogeneity-j-test" id="toc-instrument-exogeneity-j-test" class="nav-link" data-scroll-target="#instrument-exogeneity-j-test">Instrument Exogeneity: J-test</a></li>
+  </ul></li>
+  <li><a href="#testing-regressor-endogeneity" id="toc-testing-regressor-endogeneity" class="nav-link" data-scroll-target="#testing-regressor-endogeneity">Testing Regressor endogeneity</a>
+  <ul class="collapse">
+  <li><a href="#hausman-test" id="toc-hausman-test" class="nav-link" data-scroll-target="#hausman-test">Hausman test</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">Tasks</a></li><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">IV Application (I)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">IV Application (I)</h1>
+<p class="subtitle lead">Mother and father as IVs for education</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Hu </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="case-description" class="level2">
+<h2 class="anchored" data-anchor-id="case-description">Case Description</h2>
+<p><strong>Research Interests</strong>:</p>
+<ul>
+<li><p>With data set <code>wooldridge::mroz</code>, researchers were interest in the return (<code>log(Wage)</code>) to education (<code>edu</code>) for married women.</p></li>
+<li><p>use both <span class="math inline">\(motheduc\)</span> or/and <span class="math inline">\(fatheduc\)</span> as instruments for <span class="math inline">\(educ\)</span>.</p></li>
+</ul>
+</section>
+<section id="reproducible-sources" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-sources">Reproducible Sources</h2>
+<ol type="a">
+<li><p><strong>Wooldridge, J.M. Introductory econometrics: a modern approach[M].</strong> Seventh edition. Australia: Cengage, 2020.</p></li>
+<li><p><strong>Hill C, Griffiths W E, Lim G C. Principles of econometrics[M]</strong>. Fifth edition. NJ: John Wiley &amp; Sons, 2018.</p></li>
+<li><p><strong>Colonescu C. Principles of Econometrics with R (2016)</strong> <a href="https://bookdown.org/ccolonescu/RPoE4/" class="uri">https://bookdown.org/ccolonescu/RPoE4/</a></p></li>
+</ol>
+</section>
+<section id="learning-targets" class="level2">
+<h2 class="anchored" data-anchor-id="learning-targets">Learning Targets</h2>
+<ol type="a">
+<li><p>Understand the nature of <code>Endogeneity</code>.</p></li>
+<li><p>Know the steps of running TSLS method.</p></li>
+<li><p>Be familiar with R package function <code>systemfit::systemfit()</code> and <code>ARE::ivreg()</code>.</p></li>
+<li><p>Testing <strong>Instrument validity</strong> (Weak instrument) both using <strong>Restricted F-test</strong> and <strong>J-test</strong>.</p></li>
+<li><p>Testing <strong>Regressor endogeneity</strong> by using <strong>Hausman test</strong>.</p></li>
+</ol>
+</section>
+<section id="exercise-materials" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-materials">Exercise Materials</h2>
+<p>You can find all the exercise materials in this project under the file directory:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>D:/github/course-emiii-accompany/IV-wage-mroz
+├── code-mroz.R
+└── mroz-var-label.txt</code></pre>
+</div>
+</div>
+</section>
+<section id="ols-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="ols-estimation">OLS Estimation</h2>
+<p>Consider the following “error specified” wage model:</p>
+<p><span class="math display">\[\begin{align}
+lwage_i = \beta_1 +\beta_2educ_i + \beta_3exper_i +\beta_4expersq_i + e_i
+\end{align}\]</span></p>
+</section>
+<section id="two-stage-least-squarestsls-the-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="two-stage-least-squarestsls-the-solutions">Two-stage least squares(TSLS): the solutions</h2>
+<p>We can conduct the <strong>TSLS</strong> procedure with following two solutions:</p>
+<ul>
+<li><p>use the <strong>“Step-by-Step solution”</strong> methods without variance correction.</p></li>
+<li><p>use the <strong>“Integrated solution”</strong> with variance correction.</p></li>
+</ul>
+<ol type="1">
+<li><p>By doing the <strong>Step-by-Step solution</strong>, we will understand the basic procedure of Two-stage least squares(TSLS). But DO NOT use <strong>Step-by-Step solution</strong> solution in your paper! It is only for teaching purpose here.</p></li>
+<li><p>We need a <strong>Integrated solution</strong> for following reasons:</p></li>
+</ol>
+<ul>
+<li><p>We should obtain the correct estimated error for test and inference.</p></li>
+<li><p>We should avoid tedious steps in the former <strong>Step-by-Step</strong> routine. When the model contains more than one endogenous regressors and there are lots available instruments, then the step-by-step solution will get extremely tedious.</p></li>
+</ul>
+<p>In <code>R</code> ecosystem, we have two packages to execute the integrated solution:</p>
+<ul>
+<li><p>We can use <code>systemfit</code> package function <code>systemfit::systemfit()</code>.</p></li>
+<li><p>Or we may use <code>ARE</code> package function <code>ARE::ivreg()</code>.</p></li>
+</ul>
+<p>Both of these tools can conduct the integrated solution, and will adjust the variance of estimators automatically.</p>
+</section>
+<section id="twls-step-by-step-solution-mothereduc-as-iv" class="level2">
+<h2 class="anchored" data-anchor-id="twls-step-by-step-solution-mothereduc-as-iv">TWLS (Step-by-step solution): <code>mothereduc</code> as IV</h2>
+<p>For the <strong>Step-by-step solution</strong>, let’s consider using mother education(<code>mothereduc</code>) as instrument variable for education(<code>educ</code>).</p>
+<p>we can obtain the fitted variable <span class="math inline">\(\widehat{educ}\)</span> by conduct the following <strong>stage 1</strong> OLS regression</p>
+<p><span class="math display">\[\begin{align}
+\widehat{educ} = \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4mothereduc
+\end{align}\]</span></p>
+<p>In the second stage, we will regress log(wage) on the <span class="math inline">\(\widehat{educ}\)</span> from stage 1 and experience (<code>exper</code>)and its quadratic term (<code>expersq</code>).</p>
+<p><span class="math display">\[\begin{align}
+lwage = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}
+\end{align}\]</span></p>
+</section>
+<section id="twls-integrated-solution-mothereduc-as-iv" class="level2">
+<h2 class="anchored" data-anchor-id="twls-integrated-solution-mothereduc-as-iv">TWLS (Integrated solution): <code>mothereduc</code> as IV</h2>
+<p>Let’s consider using <span class="math inline">\(motheduc\)</span> as the only instrument for <span class="math inline">\(educ\)</span> by using the <strong>Integrated solution</strong>.</p>
+<p><span class="math display">\[\begin{cases}
+  \begin{align}
+  \widehat{educ} &amp;= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4motheduc  &amp;&amp; \text{(stage 1)}\\
+  lwage &amp; = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  &amp;&amp; \text{(stage 2)}
+  \end{align}
+\end{cases}\]</span></p>
+<p>In <code>R</code> ecosystem, we have two packages to execute the integrated solution:</p>
+<ul>
+<li><p>We can use <code>systemfit</code> package function <code>systemfit::systemfit()</code>.</p></li>
+<li><p>Or we may use <code>ARE</code> package function <code>ARE::ivreg()</code>.</p></li>
+</ul>
+<p>Both of these tools can conduct the integrated solution, and will adjust the variance of estimators correctly and automatically.</p>
+</section>
+<section id="twls-integrated-solution-mothereduc-as-iv-1" class="level2">
+<h2 class="anchored" data-anchor-id="twls-integrated-solution-mothereduc-as-iv-1">TWLS (Integrated solution): <code>mothereduc</code> as IV</h2>
+<p>Now let’s consider using <span class="math inline">\(fatheduc\)</span> as the only instrument for <span class="math inline">\(educ\)</span>.</p>
+<p><span class="math display">\[\begin{cases}
+  \begin{align}
+  \widehat{educ} &amp;= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\gamma}_3expersq +\hat{\gamma}_4fatheduc  &amp;&amp; \text{(stage 1)}\\
+  lwage &amp; = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  &amp;&amp; \text{(stage 2)}
+  \end{align}
+\end{cases}\]</span></p>
+<p>We will repeat the whole procedure by using <code>R</code> function <code>systemfit::systemfit()</code> or <code>ARE::ivreg()</code> as we have done before.</p>
+</section>
+<section id="twls-integrated-solution-mothedu-and-fatheduc-as-iv" class="level2">
+<h2 class="anchored" data-anchor-id="twls-integrated-solution-mothedu-and-fatheduc-as-iv">TWLS (Integrated solution): <code>mothedu</code> and <code>fatheduc</code> as IV</h2>
+<p>Also, we can use both <span class="math inline">\(motheduc\)</span> and <span class="math inline">\(fatheduc\)</span> as instruments for <span class="math inline">\(educ\)</span>.</p>
+<p><span class="math display">\[\begin{cases}
+  \begin{align}
+  \widehat{educ} &amp;= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  &amp;&amp; \text{(stage 1)}\\
+  lwage &amp; = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  &amp;&amp; \text{(stage 2)}
+  \end{align}
+\end{cases}\]</span></p>
+<p>We will repeat the whole procedure by using <code>R</code> function <code>systemfit::systemfit()</code> or <code>ARE::ivreg()</code> as we have done before.</p>
+</section>
+<section id="solutions-comparison-a-glance" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-comparison-a-glance">Solutions comparison: a glance</h2>
+<p>Until now, we obtain totally <strong>Five</strong> estimation results with different model settings or solutions:</p>
+<ol type="a">
+<li><p>Error specification model with OLS regression directly.</p></li>
+<li><p>(<strong>Step-by-Step solution</strong>) Explicit 2SLS estimation <strong>without</strong> variance correction (IV regression step by step with only <span class="math inline">\(matheduc\)</span> as instrument).</p></li>
+<li><p>(<strong>Integrated solution</strong>) Dedicated IV estimation <strong>with</strong> variance correction ( using <code>R</code> tools of <code>systemfit::systemfit()</code> or <code>ARE::ivreg()</code>).</p></li>
+</ol>
+<ul>
+<li><p>The IV model with only <span class="math inline">\(motheduc\)</span> as instrument for endogenous variable <span class="math inline">\(edu\)</span></p></li>
+<li><p>The IV model with only <span class="math inline">\(fatheduc\)</span> as instrument for endogenous variable <span class="math inline">\(edu\)</span></p></li>
+<li><p>The IV model with both <span class="math inline">\(motheduc\)</span> and <span class="math inline">\(fatheduc\)</span> as instruments for endogenous variable <span class="math inline">\(edu\)</span></p></li>
+</ul>
+<p>After the empirical comparison, we can push to further thinking with these results.</p>
+<ul>
+<li><p>Which estimation is the best?</p></li>
+<li><p>How to judge and evaluate different instrument choices?</p></li>
+</ul>
+</section>
+<section id="testing-instrument-validity" class="level2">
+<h2 class="anchored" data-anchor-id="testing-instrument-validity">Testing Instrument validity</h2>
+<p>Consider the general model</p>
+<p><span class="math display">\[\begin{align}
+Y_{i}=\beta_{0}+\sum_{j=1}^{k} \beta_{j} X_{j i}+\sum_{s=1}^{r} \beta_{k+s} W_{ri}+\epsilon_{i}
+\end{align}\]</span></p>
+<blockquote class="blockquote">
+<ul>
+<li><span class="math inline">\(Y_{i}\)</span> is the dependent variable</li>
+<li><span class="math inline">\(\beta_{0}, \ldots, \beta_{k+1}\)</span> are <span class="math inline">\(1+k+r\)</span> unknown regression coefficients</li>
+<li><span class="math inline">\(X_{1 i}, \ldots, X_{k i}\)</span> are <span class="math inline">\(k\)</span> endogenous regressors</li>
+<li><span class="math inline">\(W_{1 i}, \ldots, W_{r i}\)</span> are <span class="math inline">\(r\)</span> exogenous regressors which are uncorrelated with <span class="math inline">\(u_{i}\)</span></li>
+<li><span class="math inline">\(u_{i}\)</span> is the error term</li>
+<li><span class="math inline">\(Z_{1 i}, \ldots, Z_{m i}\)</span> are <span class="math inline">\(m\)</span> instrumental variables</li>
+</ul>
+</blockquote>
+<p>As we know, valid instruments should satisfy both <strong>Relevance condition</strong> and <strong>Exogeneity condition</strong>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;E\left(Z_{i} X_{i}^{\prime}\right) \neq 0 &amp; \quad \text{(Relevance)}\\
+&amp;E\left(Z_{i} \epsilon_{i}\right)=0 &amp;\quad \text{(Exogeneity)}
+\end{aligned}
+\]</span></p>
+<section id="weak-instrument-restricted-f-test" class="level3">
+<h3 class="anchored" data-anchor-id="weak-instrument-restricted-f-test">Weak instrument: Restricted F-test</h3>
+<p>In case with a <strong>single</strong> endogenous regressor, we can take the <strong>F-test</strong> to check the <strong>Weak instrument</strong>.</p>
+<p>The basic idea of the F-test is very simple:</p>
+<p>If the estimated coefficients of <strong>all instruments</strong> in the <strong>first-stage</strong> of a 2SLS estimation are <strong>zero</strong>, the instruments do not explain any of the variation in the <span class="math inline">\(X\)</span> which clearly violates the relevance assumption.</p>
+<p>We may use the following rule of thumb:</p>
+<ul>
+<li>Conduct the <strong>first-stage regression</strong> of a 2SLS estimation</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+X_{i}=\hat{\gamma}_{0}+\hat{\gamma}_{1} W_{1 i}+\ldots+\hat{\gamma}_{p} W_{p i}+ \hat{\theta}_{1} Z_{1 i}+\ldots+\hat{\theta}_{q} Z_{q i}+v_{i} \quad \text{(3)}
+\end{align}\]</span></p>
+<ul>
+<li><p>Test the restricted joint hypothesis <span class="math inline">\(H_0: \hat{\theta}_1=\ldots=\hat{\theta}_q=0\)</span> by compute the <span class="math inline">\(F\)</span>-statistic.</p></li>
+<li><p>If the <span class="math inline">\(F\)</span>-statistic is less than critical value, the instruments are <strong>weak</strong>.</p></li>
+</ul>
+<p>The rule of thumb is easily implemented in <code>R</code>. Run the first-stage regression using <code>lm()</code> and subsequently compute the restricted <span class="math inline">\(F\)</span>-statistic by <code>R</code> function of <code>car::linearHypothesis()</code>.</p>
+<p>For all three IV model, we can test instrument(s) relevance respectively.</p>
+<p><span class="math display">\[\begin{align}
+educ &amp;= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_1motheduc  +v
+&amp;&amp; \text{(relevance test 1)}\\
+educ &amp;= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_2fatheduc +v  
+&amp;&amp; \text{(relevance test 2)} \\
+educ &amp;= \gamma_1 +\gamma_2exper +\gamma_2expersq + \theta_1motheduc + \theta_2fatheduc +v  
+&amp;&amp; \text{(relevance test 3)}
+\end{align}\]</span></p>
+</section>
+<section id="weak-instrument-cragg-donald-test" class="level3">
+<h3 class="anchored" data-anchor-id="weak-instrument-cragg-donald-test">Weak instrument: Cragg-Donald test</h3>
+<p>The former test for weak instruments might be unreliable with <strong>more than</strong> one endogenous regressor, though, because there is indeed one <span class="math inline">\(F\)</span>-statistic for each endogenous regressor.</p>
+<p>An alternative is the <strong>Cragg-Donald test</strong> based on the following statistic:</p>
+<p><span class="math display">\[\begin{align}
+F=\frac{N-G-B}{L} \frac{r_{B}^{2}}{1-r_{B}^{2}}
+\end{align}\]</span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(G\)</span> is the number of exogenous regressors;</p></li>
+<li><p><span class="math inline">\(B\)</span> is the number of endogenous regressors;</p></li>
+<li><p><span class="math inline">\(L\)</span> is the number of external instruments;</p></li>
+<li><p><span class="math inline">\(r_B\)</span> is the lowest canonical correlation.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Canonical correlation</strong> is a measure of the correlation between the endogenous and the exogenous variables, which can be calculated by the function <code>cancor()</code> in <code>R</code>.</p>
+</blockquote>
+<p>The critical value can be found in table 10E.1 at: Hill C, Griffiths W, Lim G. Principles of econometrics[M]. John Wiley &amp; Sons, 2018.</p>
+</section>
+<section id="instrument-exogeneity-j-test" class="level3">
+<h3 class="anchored" data-anchor-id="instrument-exogeneity-j-test">Instrument Exogeneity: J-test</h3>
+<p><strong>Instrument Exogeneity</strong> means all <span class="math inline">\(m\)</span> instruments must be uncorrelated with the error term,</p>
+<p><span class="math display">\[Cov{(Z_{1 i}, \epsilon_{i})}=0; \quad \ldots; \quad Cov{(Z_{mi}, \epsilon_{i})}=0.\]</span></p>
+<ul>
+<li><p>In the context of the simple IV estimator, we will find that the exogeneity requirement <strong>can not</strong> be tested. (Why?)</p></li>
+<li><p>However, if we have more instruments than we need, we can effectively test whether <strong>some of</strong> them are uncorrelated with the structural error.</p></li>
+</ul>
+<p>Under <strong>over-identification</strong> <span class="math inline">\((m&gt;k)\)</span>, consistent IV estimation with (multiple) different combinations of instruments is possible.</p>
+<blockquote class="blockquote">
+<p>If instruments are exogenous, the obtained estimates should be <strong>similar</strong>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>If estimates are very <strong>different</strong>, some or all instruments may .red[not] be exogenous.</p>
+</blockquote>
+<p>The <strong>Overidentifying Restrictions Test</strong> (<strong>J test</strong>) formally check this.</p>
+<ul>
+<li>The null hypothesis is Instrument Exogeneity.</li>
+</ul>
+<p><span class="math display">\[H_{0}: E\left(Z_{h i} \epsilon_{i}\right)=0, \text { for all } h=1,2, \dots, m\]</span></p>
+<p>The <strong>overidentifying restrictions test</strong> (also called the <span class="math inline">\(J\)</span>-test, or <strong>Sargan test</strong>) is an approach to test the hypothesis that the additional instruments are exogenous.</p>
+<p>Procedure of overidentifying restrictions test is:</p>
+<ul>
+<li><strong>Step 1</strong>: Compute the <strong>IV regression residuals</strong> :</li>
+</ul>
+<p><span class="math display">\[\widehat{\epsilon}_{i}^{IV}=Y_{i}-\left(\hat{\beta}_{0}^{ IV}+\sum_{j=1}^{k} \hat{\beta}_{j}^{IV} X_{j i}+\sum_{s=1}^{r} \hat{\beta}_{k+s}^{IV} W_{s i}\right)\]</span></p>
+<ul>
+<li><strong>Step 2</strong>: Run the <strong>auxiliary regression</strong>: regress the IV residuals on instruments and exogenous regressors. And test the joint hypothesis <span class="math inline">\(H_{0}: \alpha_{1}=0, \ldots, \alpha_{m}=0\)</span></li>
+</ul>
+<p><span class="math display">\[\widehat{\epsilon}_{i}^{IV}=\theta_{0}+\sum_{h=1}^{m} \theta_{h} Z_{h i}+\sum_{s=1}^{r} \gamma_{s} W_{s i}+v_{i} \quad \text{(2)}\]</span></p>
+<ul>
+<li><strong>Step3</strong>: Compute the <strong>J statistic</strong>: <span class="math inline">\(J=m F\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>where <span class="math inline">\(F\)</span> is the F-statistic of the <span class="math inline">\(m\)</span> restrictions <span class="math inline">\(H_0: \theta_{1}=\ldots=\theta_{m}=0\)</span> in eq(2)</p>
+</blockquote>
+<p>Under the <strong>null hypothesis</strong>, <span class="math inline">\(J\)</span> statistic is distributed as <span class="math inline">\(\chi^{2}(m-k)\)</span> approximately for large samples.</p>
+<p><span class="math display">\[\boldsymbol{J} \sim \chi^{2}({m-k})\]</span></p>
+<blockquote class="blockquote">
+<p>IF <span class="math inline">\(J\)</span> is <strong>less</strong> than <strong>critical value</strong>, it means that all instruments are .red[ex]ogenous.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>IF <span class="math inline">\(J\)</span> is <strong>larger</strong> than <strong>critical value</strong>, it mean that some of the instruments are .red[en]ogenous.</p>
+</blockquote>
+<ul>
+<li>We can apply the <span class="math inline">\(J\)</span>-test by using <code>R</code> function <code>linearHypothesis()</code>.</li>
+</ul>
+<p>Again, we can use both <span class="math inline">\(matheduc\)</span> and <span class="math inline">\(fatheduc\)</span> as instruments for <span class="math inline">\(educ\)</span>.</p>
+<p>Thus, the IV model is over-identification, and we can test the exogeneity of both these two instruments by using <strong>J-test</strong>.</p>
+<p>The 2SLS model will be set as below.</p>
+<p><span class="math display">\[\begin{cases}
+  \begin{align}
+  \widehat{educ} &amp;= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  &amp;&amp; \text{(stage 1)}\\
+  lwage &amp; = \hat{\beta}_1 +\hat{\beta}_2\widehat{educ} + \hat{\beta}_3exper +\hat{\beta}_4expersq + \hat{\epsilon}  &amp;&amp; \text{(stage 2)}
+  \end{align}
+\end{cases}\]</span></p>
+<p>And the auxiliary regression should be</p>
+<p><span class="math display">\[\begin{align}
+  \hat{\epsilon}^{IV} &amp;= \hat{\alpha}_1 +\hat{\alpha}_2exper + \hat{\alpha}_3expersq +\hat{\theta}_1motheduc + \hat{\theta}_2fatheduc  + v &amp;&amp; \text{(auxiliary model)}
+  \end{align}\]</span></p>
+<p>Finally, We can calculate J-statistic by hand or obtain it by using special tools.</p>
+<ul>
+<li><p>Calculate J-statistic by hand</p></li>
+<li><p>using tools of <code>linearHypothesis(.,  test = "Chisq")</code></p></li>
+</ul>
+</section>
+</section>
+<section id="testing-regressor-endogeneity" class="level2">
+<h2 class="anchored" data-anchor-id="testing-regressor-endogeneity">Testing Regressor endogeneity</h2>
+<p>How can we test the regressor endogeneity?</p>
+<p>Since OLS is in general more efficient than IV (recall that if Gauss-Markov assumptions hold OLS is BLUE), we don’t want to use IV when we don’t need to get the consistent estimators.</p>
+<p>Of course, if we really want to get a consistent estimator, we also need to check whether the endogenous regressors are really <strong>endogenous</strong> in the model.</p>
+<p>So we should test following hypothesis:</p>
+<p><span class="math display">\[H_{0}: \operatorname{Cov}(X, \epsilon)=0 \text { vs. } H_{1}: \operatorname{Cov}(X, \epsilon) \neq 0\]</span></p>
+<section id="hausman-test" class="level3">
+<h3 class="anchored" data-anchor-id="hausman-test">Hausman test</h3>
+<p><code>Hausman</code> tells us that we should use OLS if we fail to reject <span class="math inline">\(H_{0}\)</span>. And we should use IV estimation if we reject <span class="math inline">\(H_{0}\)</span></p>
+<p>Let’s see how to construct a <code>Hausman test</code>. While the idea is very simple.</p>
+<ul>
+<li><p>If <span class="math inline">\(X\)</span> is <strong>.red[ex]ogenous</strong> in fact, then both OLS and IV are consistent, but OLS estimates are more efficient than IV estimates.</p></li>
+<li><p>If <span class="math inline">\(X\)</span> is <strong>.red[en]dogenous</strong> in fact, then the results from OLS estimators are different, while results obtained by IV (eg. 2SLS) are consistent.</p></li>
+</ul>
+<p>We can compare the difference between estimates computed using both OLS and IV.</p>
+<ul>
+<li>If the difference is <strong>small</strong>, we can conjecture that both OLS and IV are consistent and the small difference between the estimates is not systematic.</li>
+<li>If the difference is <strong>large</strong> this is due to the fact that OLS estimates are not consistent. We should use IV in this case.</li>
+</ul>
+<p>Again, we use both <span class="math inline">\(matheduc\)</span> and <span class="math inline">\(fatheduc\)</span> as instruments for <span class="math inline">\(educ\)</span> in our IV model setting.</p>
+<p><span class="math display">\[\begin{cases}
+  \begin{align}
+  \widehat{educ} &amp;= \hat{\gamma}_1 +\hat{\gamma}_2exper + \hat{\beta}_3expersq +\hat{\beta}_4motheduc + \hat{\beta}_5fatheduc  &amp;&amp; \text{(stage 1)}\\
+  lwage &amp; = \hat{\alpha}_1 +\hat{\alpha}_2\widehat{educ} + \hat{\alpha}_3exper +\hat{\alpha}_4expersq + \hat{\epsilon}  &amp;&amp; \text{(stage 2)}
+  \end{align}
+\end{cases}\]</span></p>
+<div class="callout-tips">
+<p>In <code>R</code>, we can use IV model diagnose tool to check the Hausman test results.</p>
+<p>In fact, <code>R</code> function <code>summary(lm_iv_mf, diagnostics = TRUE)</code> by setting <code>diagnostics = TRUE</code> will give you these results.</p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

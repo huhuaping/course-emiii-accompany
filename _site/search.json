@@ -1,0 +1,248 @@
+[
+  {
+    "objectID": "menu/projects-intro.html",
+    "href": "menu/projects-intro.html",
+    "title": "Declare",
+    "section": "",
+    "text": "Research Reproducibility can help us to understanding econometric theory and development tools.\nResearch Reproducibility is very important for both the scientist and the science society.\nRead more books and literature, and then do coding and programming as much as you can to understand them better.",
+    "crumbs": [
+      "Projects",
+      "Declare"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-card.html",
+    "href": "menu/iv-wage-card.html",
+    "title": "IV Application (II)",
+    "section": "",
+    "text": "Research Interests:\nWith data set Card1995.dta, researchers were interest in the return (log(Wage)) to education (edu) .\nIn the wage example (wage, or log wage lwage), Let’s consider some of the variables shown below (see Table 1 ).\n\n\n\n\nTable 1: variables and definition\n\n\n\n\n\n\nvariable\ndefinition\n\n\n\n\nobs\nindex\n\n\nlwage\nquantity variable: log of wage\n\n\nedu\nquantity variable: education years\n\n\nexp\nquantity variable: working years\n\n\nexp2\nquantity variable: square working years/100\n\n\nblack\ndummy: 1=black; 0=nonblack\n\n\nsouth\ndummy: 1=southern area; 0= other\n\n\nurban\ndummy: 1=live in urban; 0= other\n\n\ncollege\ndummy: 1=college nearby; 0= other\n\n\npublic\ndummy: 1=public college nearby; 0= other\n\n\nprivate\ndummy: 1=private college nearby; 0= other\n\n\nage\nquantity variable: age (years)\n\n\nage2\nquantity variable: age square /100\n\n\nmomedu\nquantity variable: mother’ education years\n\n\ndadedu\nquantity variable: father’ education years",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (II)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-card.html#case-description",
+    "href": "menu/iv-wage-card.html#case-description",
+    "title": "IV Application (II)",
+    "section": "",
+    "text": "Research Interests:\nWith data set Card1995.dta, researchers were interest in the return (log(Wage)) to education (edu) .\nIn the wage example (wage, or log wage lwage), Let’s consider some of the variables shown below (see Table 1 ).\n\n\n\n\nTable 1: variables and definition\n\n\n\n\n\n\nvariable\ndefinition\n\n\n\n\nobs\nindex\n\n\nlwage\nquantity variable: log of wage\n\n\nedu\nquantity variable: education years\n\n\nexp\nquantity variable: working years\n\n\nexp2\nquantity variable: square working years/100\n\n\nblack\ndummy: 1=black; 0=nonblack\n\n\nsouth\ndummy: 1=southern area; 0= other\n\n\nurban\ndummy: 1=live in urban; 0= other\n\n\ncollege\ndummy: 1=college nearby; 0= other\n\n\npublic\ndummy: 1=public college nearby; 0= other\n\n\nprivate\ndummy: 1=private college nearby; 0= other\n\n\nage\nquantity variable: age (years)\n\n\nage2\nquantity variable: age square /100\n\n\nmomedu\nquantity variable: mother’ education years\n\n\ndadedu\nquantity variable: father’ education years",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (II)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-card.html#reproducible-sources",
+    "href": "menu/iv-wage-card.html#reproducible-sources",
+    "title": "IV Application (II)",
+    "section": "Reproducible Sources",
+    "text": "Reproducible Sources\nHansen, B. Econometrics[M]. Princeton: Princeton University Press, 2022. Chapter 12: Instrumental Variables.\n\nTable 12.1: Instrumental Variable Wage Regressions\nTable 12.2: Reduced Form Regressions",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (II)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-card.html#learning-targets",
+    "href": "menu/iv-wage-card.html#learning-targets",
+    "title": "IV Application (II)",
+    "section": "Learning Targets",
+    "text": "Learning Targets\n\nUnderstand the nature of Endogeneity.\nKnow the steps of running TSLS method.\nBe familiar with R package function systemfit::systemfit() and ARE::ivreg().",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (II)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-card.html#exercise-materials",
+    "href": "menu/iv-wage-card.html#exercise-materials",
+    "title": "IV Application (II)",
+    "section": "Exercise Materials",
+    "text": "Exercise Materials\nYou can find all the exercise materials in this project under the file directory:\n\n\nD:/github/course-emiii-accompany/IV-wage-card\n├── card1995.dta\n└── code-card-hansen.R",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (II)"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "This site is served for project of “Econometrics III Accompany”, with which My students in my ” Advanced Econometrics” class can do some programming exercises and make class examples reproducible.\n\n\n\n\n\n\nNote\n\n\n\n\nThis project is under building and will irritated regularly.\nI create a project repository(https://github.com/huhuaping/course-emiii-accompany) and host it at https://github.com/ publicly.\n\n\n\nKevin Hu (胡华平)\nNorthwest A&F University\nYangling city"
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html",
+    "href": "menu/iv-wage-mroz.html",
+    "title": "IV Application (I)",
+    "section": "",
+    "text": "Research Interests:\n\nWith data set wooldridge::mroz, researchers were interest in the return (log(Wage)) to education (edu) for married women.\nuse both \\(motheduc\\) or/and \\(fatheduc\\) as instruments for \\(educ\\).",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#case-description",
+    "href": "menu/iv-wage-mroz.html#case-description",
+    "title": "IV Application (I)",
+    "section": "",
+    "text": "Research Interests:\n\nWith data set wooldridge::mroz, researchers were interest in the return (log(Wage)) to education (edu) for married women.\nuse both \\(motheduc\\) or/and \\(fatheduc\\) as instruments for \\(educ\\).",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#reproducible-sources",
+    "href": "menu/iv-wage-mroz.html#reproducible-sources",
+    "title": "IV Application (I)",
+    "section": "Reproducible Sources",
+    "text": "Reproducible Sources\n\nWooldridge, J.M. Introductory econometrics: a modern approach[M]. Seventh edition. Australia: Cengage, 2020.\nHill C, Griffiths W E, Lim G C. Principles of econometrics[M]. Fifth edition. NJ: John Wiley & Sons, 2018.\nColonescu C. Principles of Econometrics with R (2016) https://bookdown.org/ccolonescu/RPoE4/",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#learning-targets",
+    "href": "menu/iv-wage-mroz.html#learning-targets",
+    "title": "IV Application (I)",
+    "section": "Learning Targets",
+    "text": "Learning Targets\n\nUnderstand the nature of Endogeneity.\nKnow the steps of running TSLS method.\nBe familiar with R package function systemfit::systemfit() and ARE::ivreg().\nTesting Instrument validity (Weak instrument) both using Restricted F-test and J-test.\nTesting Regressor endogeneity by using Hausman test.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#exercise-materials",
+    "href": "menu/iv-wage-mroz.html#exercise-materials",
+    "title": "IV Application (I)",
+    "section": "Exercise Materials",
+    "text": "Exercise Materials\nYou can find all the exercise materials in this project under the file directory:\n\n\nD:/github/course-emiii-accompany/IV-wage-mroz\n├── code-mroz.R\n└── mroz-var-label.txt",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#ols-estimation",
+    "href": "menu/iv-wage-mroz.html#ols-estimation",
+    "title": "IV Application (I)",
+    "section": "OLS Estimation",
+    "text": "OLS Estimation\nConsider the following “error specified” wage model:\n\\[\\begin{align}\nlwage_i = \\beta_1 +\\beta_2educ_i + \\beta_3exper_i +\\beta_4expersq_i + e_i\n\\end{align}\\]",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#two-stage-least-squarestsls-the-solutions",
+    "href": "menu/iv-wage-mroz.html#two-stage-least-squarestsls-the-solutions",
+    "title": "IV Application (I)",
+    "section": "Two-stage least squares(TSLS): the solutions",
+    "text": "Two-stage least squares(TSLS): the solutions\nWe can conduct the TSLS procedure with following two solutions:\n\nuse the “Step-by-Step solution” methods without variance correction.\nuse the “Integrated solution” with variance correction.\n\n\nBy doing the Step-by-Step solution, we will understand the basic procedure of Two-stage least squares(TSLS). But DO NOT use Step-by-Step solution solution in your paper! It is only for teaching purpose here.\nWe need a Integrated solution for following reasons:\n\n\nWe should obtain the correct estimated error for test and inference.\nWe should avoid tedious steps in the former Step-by-Step routine. When the model contains more than one endogenous regressors and there are lots available instruments, then the step-by-step solution will get extremely tedious.\n\nIn R ecosystem, we have two packages to execute the integrated solution:\n\nWe can use systemfit package function systemfit::systemfit().\nOr we may use ARE package function ARE::ivreg().\n\nBoth of these tools can conduct the integrated solution, and will adjust the variance of estimators automatically.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#twls-step-by-step-solution-mothereduc-as-iv",
+    "href": "menu/iv-wage-mroz.html#twls-step-by-step-solution-mothereduc-as-iv",
+    "title": "IV Application (I)",
+    "section": "TWLS (Step-by-step solution): mothereduc as IV",
+    "text": "TWLS (Step-by-step solution): mothereduc as IV\nFor the Step-by-step solution, let’s consider using mother education(mothereduc) as instrument variable for education(educ).\nwe can obtain the fitted variable \\(\\widehat{educ}\\) by conduct the following stage 1 OLS regression\n\\[\\begin{align}\n\\widehat{educ} = \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\gamma}_3expersq +\\hat{\\gamma}_4mothereduc\n\\end{align}\\]\nIn the second stage, we will regress log(wage) on the \\(\\widehat{educ}\\) from stage 1 and experience (exper)and its quadratic term (expersq).\n\\[\\begin{align}\nlwage = \\hat{\\beta}_1 +\\hat{\\beta}_2\\widehat{educ} + \\hat{\\beta}_3exper +\\hat{\\beta}_4expersq + \\hat{\\epsilon}\n\\end{align}\\]",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#twls-integrated-solution-mothereduc-as-iv",
+    "href": "menu/iv-wage-mroz.html#twls-integrated-solution-mothereduc-as-iv",
+    "title": "IV Application (I)",
+    "section": "TWLS (Integrated solution): mothereduc as IV",
+    "text": "TWLS (Integrated solution): mothereduc as IV\nLet’s consider using \\(motheduc\\) as the only instrument for \\(educ\\) by using the Integrated solution.\n\\[\\begin{cases}\n  \\begin{align}\n  \\widehat{educ} &= \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\gamma}_3expersq +\\hat{\\gamma}_4motheduc  && \\text{(stage 1)}\\\\\n  lwage & = \\hat{\\beta}_1 +\\hat{\\beta}_2\\widehat{educ} + \\hat{\\beta}_3exper +\\hat{\\beta}_4expersq + \\hat{\\epsilon}  && \\text{(stage 2)}\n  \\end{align}\n\\end{cases}\\]\nIn R ecosystem, we have two packages to execute the integrated solution:\n\nWe can use systemfit package function systemfit::systemfit().\nOr we may use ARE package function ARE::ivreg().\n\nBoth of these tools can conduct the integrated solution, and will adjust the variance of estimators correctly and automatically.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#twls-integrated-solution-mothereduc-as-iv-1",
+    "href": "menu/iv-wage-mroz.html#twls-integrated-solution-mothereduc-as-iv-1",
+    "title": "IV Application (I)",
+    "section": "TWLS (Integrated solution): mothereduc as IV",
+    "text": "TWLS (Integrated solution): mothereduc as IV\nNow let’s consider using \\(fatheduc\\) as the only instrument for \\(educ\\).\n\\[\\begin{cases}\n  \\begin{align}\n  \\widehat{educ} &= \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\gamma}_3expersq +\\hat{\\gamma}_4fatheduc  && \\text{(stage 1)}\\\\\n  lwage & = \\hat{\\beta}_1 +\\hat{\\beta}_2\\widehat{educ} + \\hat{\\beta}_3exper +\\hat{\\beta}_4expersq + \\hat{\\epsilon}  && \\text{(stage 2)}\n  \\end{align}\n\\end{cases}\\]\nWe will repeat the whole procedure by using R function systemfit::systemfit() or ARE::ivreg() as we have done before.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#twls-integrated-solution-mothedu-and-fatheduc-as-iv",
+    "href": "menu/iv-wage-mroz.html#twls-integrated-solution-mothedu-and-fatheduc-as-iv",
+    "title": "IV Application (I)",
+    "section": "TWLS (Integrated solution): mothedu and fatheduc as IV",
+    "text": "TWLS (Integrated solution): mothedu and fatheduc as IV\nAlso, we can use both \\(motheduc\\) and \\(fatheduc\\) as instruments for \\(educ\\).\n\\[\\begin{cases}\n  \\begin{align}\n  \\widehat{educ} &= \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\beta}_3expersq +\\hat{\\beta}_4motheduc + \\hat{\\beta}_5fatheduc  && \\text{(stage 1)}\\\\\n  lwage & = \\hat{\\beta}_1 +\\hat{\\beta}_2\\widehat{educ} + \\hat{\\beta}_3exper +\\hat{\\beta}_4expersq + \\hat{\\epsilon}  && \\text{(stage 2)}\n  \\end{align}\n\\end{cases}\\]\nWe will repeat the whole procedure by using R function systemfit::systemfit() or ARE::ivreg() as we have done before.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#solutions-comparison-a-glance",
+    "href": "menu/iv-wage-mroz.html#solutions-comparison-a-glance",
+    "title": "IV Application (I)",
+    "section": "Solutions comparison: a glance",
+    "text": "Solutions comparison: a glance\nUntil now, we obtain totally Five estimation results with different model settings or solutions:\n\nError specification model with OLS regression directly.\n(Step-by-Step solution) Explicit 2SLS estimation without variance correction (IV regression step by step with only \\(matheduc\\) as instrument).\n(Integrated solution) Dedicated IV estimation with variance correction ( using R tools of systemfit::systemfit() or ARE::ivreg()).\n\n\nThe IV model with only \\(motheduc\\) as instrument for endogenous variable \\(edu\\)\nThe IV model with only \\(fatheduc\\) as instrument for endogenous variable \\(edu\\)\nThe IV model with both \\(motheduc\\) and \\(fatheduc\\) as instruments for endogenous variable \\(edu\\)\n\nAfter the empirical comparison, we can push to further thinking with these results.\n\nWhich estimation is the best?\nHow to judge and evaluate different instrument choices?",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#testing-instrument-validity",
+    "href": "menu/iv-wage-mroz.html#testing-instrument-validity",
+    "title": "IV Application (I)",
+    "section": "Testing Instrument validity",
+    "text": "Testing Instrument validity\nConsider the general model\n\\[\\begin{align}\nY_{i}=\\beta_{0}+\\sum_{j=1}^{k} \\beta_{j} X_{j i}+\\sum_{s=1}^{r} \\beta_{k+s} W_{ri}+\\epsilon_{i}\n\\end{align}\\]\n\n\n\\(Y_{i}\\) is the dependent variable\n\\(\\beta_{0}, \\ldots, \\beta_{k+1}\\) are \\(1+k+r\\) unknown regression coefficients\n\\(X_{1 i}, \\ldots, X_{k i}\\) are \\(k\\) endogenous regressors\n\\(W_{1 i}, \\ldots, W_{r i}\\) are \\(r\\) exogenous regressors which are uncorrelated with \\(u_{i}\\)\n\\(u_{i}\\) is the error term\n\\(Z_{1 i}, \\ldots, Z_{m i}\\) are \\(m\\) instrumental variables\n\n\nAs we know, valid instruments should satisfy both Relevance condition and Exogeneity condition.\n\\[\n\\begin{aligned}\n&E\\left(Z_{i} X_{i}^{\\prime}\\right) \\neq 0 & \\quad \\text{(Relevance)}\\\\\n&E\\left(Z_{i} \\epsilon_{i}\\right)=0 &\\quad \\text{(Exogeneity)}\n\\end{aligned}\n\\]\n\nWeak instrument: Restricted F-test\nIn case with a single endogenous regressor, we can take the F-test to check the Weak instrument.\nThe basic idea of the F-test is very simple:\nIf the estimated coefficients of all instruments in the first-stage of a 2SLS estimation are zero, the instruments do not explain any of the variation in the \\(X\\) which clearly violates the relevance assumption.\nWe may use the following rule of thumb:\n\nConduct the first-stage regression of a 2SLS estimation\n\n\\[\\begin{align}\nX_{i}=\\hat{\\gamma}_{0}+\\hat{\\gamma}_{1} W_{1 i}+\\ldots+\\hat{\\gamma}_{p} W_{p i}+ \\hat{\\theta}_{1} Z_{1 i}+\\ldots+\\hat{\\theta}_{q} Z_{q i}+v_{i} \\quad \\text{(3)}\n\\end{align}\\]\n\nTest the restricted joint hypothesis \\(H_0: \\hat{\\theta}_1=\\ldots=\\hat{\\theta}_q=0\\) by compute the \\(F\\)-statistic.\nIf the \\(F\\)-statistic is less than critical value, the instruments are weak.\n\nThe rule of thumb is easily implemented in R. Run the first-stage regression using lm() and subsequently compute the restricted \\(F\\)-statistic by R function of car::linearHypothesis().\nFor all three IV model, we can test instrument(s) relevance respectively.\n\\[\\begin{align}\neduc &= \\gamma_1 +\\gamma_2exper +\\gamma_2expersq + \\theta_1motheduc  +v\n&& \\text{(relevance test 1)}\\\\\neduc &= \\gamma_1 +\\gamma_2exper +\\gamma_2expersq + \\theta_2fatheduc +v  \n&& \\text{(relevance test 2)} \\\\\neduc &= \\gamma_1 +\\gamma_2exper +\\gamma_2expersq + \\theta_1motheduc + \\theta_2fatheduc +v  \n&& \\text{(relevance test 3)}\n\\end{align}\\]\n\n\nWeak instrument: Cragg-Donald test\nThe former test for weak instruments might be unreliable with more than one endogenous regressor, though, because there is indeed one \\(F\\)-statistic for each endogenous regressor.\nAn alternative is the Cragg-Donald test based on the following statistic:\n\\[\\begin{align}\nF=\\frac{N-G-B}{L} \\frac{r_{B}^{2}}{1-r_{B}^{2}}\n\\end{align}\\]\nwhere:\n\n\\(G\\) is the number of exogenous regressors;\n\\(B\\) is the number of endogenous regressors;\n\\(L\\) is the number of external instruments;\n\\(r_B\\) is the lowest canonical correlation.\n\n\nCanonical correlation is a measure of the correlation between the endogenous and the exogenous variables, which can be calculated by the function cancor() in R.\n\nThe critical value can be found in table 10E.1 at: Hill C, Griffiths W, Lim G. Principles of econometrics[M]. John Wiley & Sons, 2018.\n\n\nInstrument Exogeneity: J-test\nInstrument Exogeneity means all \\(m\\) instruments must be uncorrelated with the error term,\n\\[Cov{(Z_{1 i}, \\epsilon_{i})}=0; \\quad \\ldots; \\quad Cov{(Z_{mi}, \\epsilon_{i})}=0.\\]\n\nIn the context of the simple IV estimator, we will find that the exogeneity requirement can not be tested. (Why?)\nHowever, if we have more instruments than we need, we can effectively test whether some of them are uncorrelated with the structural error.\n\nUnder over-identification \\((m&gt;k)\\), consistent IV estimation with (multiple) different combinations of instruments is possible.\n\nIf instruments are exogenous, the obtained estimates should be similar.\n\n\nIf estimates are very different, some or all instruments may .red[not] be exogenous.\n\nThe Overidentifying Restrictions Test (J test) formally check this.\n\nThe null hypothesis is Instrument Exogeneity.\n\n\\[H_{0}: E\\left(Z_{h i} \\epsilon_{i}\\right)=0, \\text { for all } h=1,2, \\dots, m\\]\nThe overidentifying restrictions test (also called the \\(J\\)-test, or Sargan test) is an approach to test the hypothesis that the additional instruments are exogenous.\nProcedure of overidentifying restrictions test is:\n\nStep 1: Compute the IV regression residuals :\n\n\\[\\widehat{\\epsilon}_{i}^{IV}=Y_{i}-\\left(\\hat{\\beta}_{0}^{ IV}+\\sum_{j=1}^{k} \\hat{\\beta}_{j}^{IV} X_{j i}+\\sum_{s=1}^{r} \\hat{\\beta}_{k+s}^{IV} W_{s i}\\right)\\]\n\nStep 2: Run the auxiliary regression: regress the IV residuals on instruments and exogenous regressors. And test the joint hypothesis \\(H_{0}: \\alpha_{1}=0, \\ldots, \\alpha_{m}=0\\)\n\n\\[\\widehat{\\epsilon}_{i}^{IV}=\\theta_{0}+\\sum_{h=1}^{m} \\theta_{h} Z_{h i}+\\sum_{s=1}^{r} \\gamma_{s} W_{s i}+v_{i} \\quad \\text{(2)}\\]\n\nStep3: Compute the J statistic: \\(J=m F\\)\n\n\nwhere \\(F\\) is the F-statistic of the \\(m\\) restrictions \\(H_0: \\theta_{1}=\\ldots=\\theta_{m}=0\\) in eq(2)\n\nUnder the null hypothesis, \\(J\\) statistic is distributed as \\(\\chi^{2}(m-k)\\) approximately for large samples.\n\\[\\boldsymbol{J} \\sim \\chi^{2}({m-k})\\]\n\nIF \\(J\\) is less than critical value, it means that all instruments are .red[ex]ogenous.\n\n\nIF \\(J\\) is larger than critical value, it mean that some of the instruments are .red[en]ogenous.\n\n\nWe can apply the \\(J\\)-test by using R function linearHypothesis().\n\nAgain, we can use both \\(matheduc\\) and \\(fatheduc\\) as instruments for \\(educ\\).\nThus, the IV model is over-identification, and we can test the exogeneity of both these two instruments by using J-test.\nThe 2SLS model will be set as below.\n\\[\\begin{cases}\n  \\begin{align}\n  \\widehat{educ} &= \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\beta}_3expersq +\\hat{\\beta}_4motheduc + \\hat{\\beta}_5fatheduc  && \\text{(stage 1)}\\\\\n  lwage & = \\hat{\\beta}_1 +\\hat{\\beta}_2\\widehat{educ} + \\hat{\\beta}_3exper +\\hat{\\beta}_4expersq + \\hat{\\epsilon}  && \\text{(stage 2)}\n  \\end{align}\n\\end{cases}\\]\nAnd the auxiliary regression should be\n\\[\\begin{align}\n  \\hat{\\epsilon}^{IV} &= \\hat{\\alpha}_1 +\\hat{\\alpha}_2exper + \\hat{\\alpha}_3expersq +\\hat{\\theta}_1motheduc + \\hat{\\theta}_2fatheduc  + v && \\text{(auxiliary model)}\n  \\end{align}\\]\nFinally, We can calculate J-statistic by hand or obtain it by using special tools.\n\nCalculate J-statistic by hand\nusing tools of linearHypothesis(.,  test = \"Chisq\")",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  },
+  {
+    "objectID": "menu/iv-wage-mroz.html#testing-regressor-endogeneity",
+    "href": "menu/iv-wage-mroz.html#testing-regressor-endogeneity",
+    "title": "IV Application (I)",
+    "section": "Testing Regressor endogeneity",
+    "text": "Testing Regressor endogeneity\nHow can we test the regressor endogeneity?\nSince OLS is in general more efficient than IV (recall that if Gauss-Markov assumptions hold OLS is BLUE), we don’t want to use IV when we don’t need to get the consistent estimators.\nOf course, if we really want to get a consistent estimator, we also need to check whether the endogenous regressors are really endogenous in the model.\nSo we should test following hypothesis:\n\\[H_{0}: \\operatorname{Cov}(X, \\epsilon)=0 \\text { vs. } H_{1}: \\operatorname{Cov}(X, \\epsilon) \\neq 0\\]\n\nHausman test\nHausman tells us that we should use OLS if we fail to reject \\(H_{0}\\). And we should use IV estimation if we reject \\(H_{0}\\)\nLet’s see how to construct a Hausman test. While the idea is very simple.\n\nIf \\(X\\) is .red[ex]ogenous in fact, then both OLS and IV are consistent, but OLS estimates are more efficient than IV estimates.\nIf \\(X\\) is .red[en]dogenous in fact, then the results from OLS estimators are different, while results obtained by IV (eg. 2SLS) are consistent.\n\nWe can compare the difference between estimates computed using both OLS and IV.\n\nIf the difference is small, we can conjecture that both OLS and IV are consistent and the small difference between the estimates is not systematic.\nIf the difference is large this is due to the fact that OLS estimates are not consistent. We should use IV in this case.\n\nAgain, we use both \\(matheduc\\) and \\(fatheduc\\) as instruments for \\(educ\\) in our IV model setting.\n\\[\\begin{cases}\n  \\begin{align}\n  \\widehat{educ} &= \\hat{\\gamma}_1 +\\hat{\\gamma}_2exper + \\hat{\\beta}_3expersq +\\hat{\\beta}_4motheduc + \\hat{\\beta}_5fatheduc  && \\text{(stage 1)}\\\\\n  lwage & = \\hat{\\alpha}_1 +\\hat{\\alpha}_2\\widehat{educ} + \\hat{\\alpha}_3exper +\\hat{\\alpha}_4expersq + \\hat{\\epsilon}  && \\text{(stage 2)}\n  \\end{align}\n\\end{cases}\\]\n\nIn R, we can use IV model diagnose tool to check the Hausman test results.\nIn fact, R function summary(lm_iv_mf, diagnostics = TRUE) by setting diagnostics = TRUE will give you these results.",
+    "crumbs": [
+      "Projects",
+      "Tasks",
+      "IV Application (I)"
+    ]
+  }
+]

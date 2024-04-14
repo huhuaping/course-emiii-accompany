@@ -1,10 +1,11 @@
 ---
 title: "Declare"
-subtitle: "Research Reproducibility on Econometrics"
+subtitle: "Research Reproducibility on Econometrics III"
 ---
 
-## Case Description
+- Research Reproducibility can help us to understanding econometric theory and development tools.
 
-### Research Interests
+- Research Reproducibility is very important for both the scientist and the science society.
 
-With data set `wooldridge::mroz`, researchers were interest in the return (`log(Wage)`) to education (`edu`) for married women.
+- Read more books and literature, and then do coding and programming as much as you can to understand them better.
+
