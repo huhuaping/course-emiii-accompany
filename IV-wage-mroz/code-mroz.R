@@ -1,6 +1,12 @@
 # load basic pkgs
-source("R/load-pkg-basic.R")
-
+#source("R/load-pkg-basic.R")
+require(magrittr)
+require(tidyverse)
+require(broom)
+require(haven)
+require(systemfit)
+require(AER)
+require(car)
 # load other necessary packages 
 library("wooldridge")  # data sets
 
@@ -306,8 +312,35 @@ f <- m -1
 
 # ==== 17.6 Testing Regressor endogeneity====
 
-### ==== Wage example: Hausman test (full model diagnose) ====
+### ==== Hausman test 1 (full model diagnose) ====
 
 summary(lm_iv_mf, diagnostics = TRUE)
 
 
+### ==== Hausman test 2 (calculate) ====
+
+## guide with Hansen's chpt 12.29 Endogeneity test 
+
+## reduced function for endogenous education
+red_mf <- formula(educ ~ exper + expersq + motheduc + fatheduc)
+fit_red_mf<- lm(formula = red_mf, data = mroz)
+
+## extract residual u2 and combined new dataset
+resid_mf <- data.frame(resid_mf = resid(fit_red_mf))
+tbl_mf <- cbind(mroz, resid_mf)
+
+## control function OLS estimation
+control_mf <- formula(lwage ~ educ +exper + expersq  + resid_mf)
+fit_control_mf <- lm(formula = control_mf, data = tbl_mf)
+smry_control_mf <- summary(fit_control_mf)
+
+## extract t statistics of alpha
+t_star_resid <- pull(
+  as_tibble(t(smry_control_mf$coefficients[,"t value"])), 
+  "resid_mf")
+
+## calculate equivalent Restricted F statistics
+
+restricted_F_mf <- linearHypothesis(model = fit_control_mf, "resid_mf=0")
+F_star_resid <- restricted_F_mf$F[2]
+p_F_resid <- restricted_F_mf$`Pr(>F)`[2]

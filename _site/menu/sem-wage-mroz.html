@@ -8,7 +8,7 @@
 
 <meta name="author" content="Kevin Hu">
 
-<title>EM III Accompany - Declare</title>
+<title>EM III Accompany - SEM Application (mroz)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../scss/styles.css">
 </head>
@@ -94,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Preface</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../menu/projects-intro.html" aria-current="page"> 
+    <a class="nav-link active" href="../menu/project-prepare.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -108,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../menu/projects-intro.html">Declare</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">Tasks</a></li><li class="breadcrumb-item"><a href="../menu/sem-wage-mroz.html">SEM Application (mroz)</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -122,8 +151,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../menu/projects-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Declare</span></a>
+  <a href="../menu/project-prepare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Requirements</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -138,13 +167,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../menu/iv-wage-mroz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IV Application (I)</span></a>
+ <span class="menu-text">IV Application (mroz)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../menu/iv-wage-card.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IV Application (II)</span></a>
+ <span class="menu-text">IV Application (card)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../menu/sem-wage-mroz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">SEM Application (mroz)</span></a>
   </div>
 </li>
       </ul>
@@ -155,15 +190,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#case-description" id="toc-case-description" class="nav-link active" data-scroll-target="#case-description">Case Description</a></li>
+  <li><a href="#models-setting" id="toc-models-setting" class="nav-link" data-scroll-target="#models-setting">Models setting</a>
+  <ul class="collapse">
+  <li><a href="#the-structrual-equations" id="toc-the-structrual-equations" class="nav-link" data-scroll-target="#the-structrual-equations">The structrual equations</a></li>
+  <li><a href="#the-reduced-equations" id="toc-the-reduced-equations" class="nav-link" data-scroll-target="#the-reduced-equations">The reduced equations</a></li>
+  </ul></li>
+  <li><a href="#reproducible-sources" id="toc-reproducible-sources" class="nav-link" data-scroll-target="#reproducible-sources">Reproducible Sources</a></li>
+  <li><a href="#learning-targets" id="toc-learning-targets" class="nav-link" data-scroll-target="#learning-targets">Learning Targets</a></li>
+  <li><a href="#exercise-materials" id="toc-exercise-materials" class="nav-link" data-scroll-target="#exercise-materials">Exercise Materials</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../menu/iv-wage-mroz.html">Tasks</a></li><li class="breadcrumb-item"><a href="../menu/sem-wage-mroz.html">SEM Application (mroz)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Declare</h1>
-<p class="subtitle lead">Research Reproducibility on Econometrics III</p>
+<h1 class="title">SEM Application (mroz)</h1>
+<p class="subtitle lead">Labor market of married, Working Women</p>
 </div>
 
 
@@ -186,13 +235,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="case-description" class="level2">
+<h2 class="anchored" data-anchor-id="case-description">Case Description</h2>
+<p>Let’s consider the labor market for married women already in the workforce.</p>
+<p>We will use the data on working, married women in <code>wooldridge::mroz</code> to estimate the labor supply and wage demand equations by 2SLS.</p>
+<p>The full set of instruments includes <code>educ</code>, <code>age</code>, <code>kidslt6</code>, <code>nwifeinc</code>, <code>exper</code>, and <code>exper2</code>.</p>
+</section>
+<section id="models-setting" class="level2">
+<h2 class="anchored" data-anchor-id="models-setting">Models setting</h2>
+<section id="the-structrual-equations" class="level3">
+<h3 class="anchored" data-anchor-id="the-structrual-equations">The structrual equations</h3>
+<p><span class="math display">\[
+\begin{aligned}
+\text { hours } &amp; =\alpha_1 \log ( wage)+\beta_{10}+\beta_{11} { educ }+\beta_{12} age+\beta_{13}  { kidslt6 } &amp;&amp;\\
+&amp;+\beta_{14} { nwifeinc }+u_1  &amp;&amp;\text{(supply)}\\
+\log ({ wage }) &amp;=\alpha_2 { hours }+\beta_{20}+\beta_{21} { educ }+\beta_{22} { exper }  +\beta_{23} { exper }^2+ u_2 &amp;&amp; \quad \text{(demand)}
+\end{aligned}
+\]</span></p>
 <ul>
-<li><p>Research Reproducibility can help us to understanding econometric theory and development tools.</p></li>
-<li><p>Research Reproducibility is very important for both the scientist and the science society.</p></li>
-<li><p>Read more books and literature, and then do coding and programming as much as you can to understand them better.</p></li>
+<li><p>In the demand function, we write the wage offer as a function of hours and the usual productivity variables.</p></li>
+<li><p>All variables except <code>hours</code> and <code>log(wage)</code> are assumed to be exogenous.</p></li>
+<li><p><code>educ</code> might be correlated with omitted <code>ability</code> in either equation. Here, we just ignore the omitted ability problem.</p></li>
 </ul>
+</section>
+<section id="the-reduced-equations" class="level3">
+<h3 class="anchored" data-anchor-id="the-reduced-equations">The reduced equations</h3>
+<p><span class="math display">\[
+\begin{alignedat}{8}
+\text { hours } &amp; =\pi_{10}+\pi_{11} { educ }+\pi_{12} age+\pi_{13}  { kidslt6 }  +\pi_{14} { nwifeinc }\\
+&amp;+\pi_{15} { exper }  +\pi_{16} {exper}^2 +v_1  \\
+\log ({ wage }) &amp;=\pi_{20}+\pi_{21} { educ }+\pi_{22} age+\pi_{23}  { kidslt6 }  +\pi_{24} { nwifeinc } \\
+&amp;+\pi_{25} { exper }  +\pi_{26} {exper}^2+ v_2
+\end{alignedat}
+\]</span></p>
+</section>
+</section>
+<section id="reproducible-sources" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-sources">Reproducible Sources</h2>
+<p><strong>Wooldridge, J.M. Introductory econometrics: a modern approach[M].</strong> Seventh edition. Australia: Cengage, 2020.</p>
+<ul>
+<li>Example 16.5: labor Supply of married, Working Women</li>
+</ul>
+</section>
+<section id="learning-targets" class="level2">
+<h2 class="anchored" data-anchor-id="learning-targets">Learning Targets</h2>
+<ol type="a">
+<li><p>Understand the nature of <code>SEM</code>.</p></li>
+<li><p>Know the steps of running TSLS method.</p></li>
+<li><p>Be familiar with R package function <code>systemfit::systemfit()</code>.</p></li>
+</ol>
+</section>
+<section id="exercise-materials" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-materials">Exercise Materials</h2>
+<p>You can find all the exercise materials in this project under the file directory:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>D:/github/course-emiii-accompany/sem-wage-mroz
+└── code-sem-mroz.R</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

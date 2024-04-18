@@ -1,0 +1,17 @@
+{
+  "hash": "5dfdf344e420604f090a59f6117d069f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"my first paper\"\nauthor: \"Kevin Hu\"\nformat: docx\n---\n\n\n## introduction\n\n## literature\n\n## case analysis\n\n### preparation\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n### scatter\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| label: fig-scatter\n#| fig-cap: \"the scatter of educ and lwage\"\n### ==== Wage example: the scatter ====\n\nmroz %>%\n  ggplot(aes(educ, lwage))+\n  geom_point(size=3) +\n  labs(x= \"educ\", y=\"log(wage)\") +\n  theme(text = element_text(size=16))\n```\n````\n\n::: {.cell-output-display}\n![the scatter of educ and lwage](workingpaper_files/figure-docx/fig-scatter-1.png){#fig-scatter}\n:::\n:::\n\n\n\n### OLS results\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\nform_base <- \"lwage ~ educ + exper + expersq\"\n\nfit_ols <- lm(formula = form_base,data = mroz)\nsummary(fit_ols)\n\n\nmod_origin <- formula(\"lwage ~ educ +exper+expersq\")\nols_origin <- lm(formula = mod_origin, \n                 data = mroz)\n# summary(ols_origin)\n```\n````\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\nCall:\nlm(formula = form_base, data = mroz)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-3.08404 -0.30627  0.04952  0.37498  2.37115 \n\nCoefficients:\n              Estimate Std. Error t value Pr(>|t|)    \n(Intercept) -0.5220406  0.1986321  -2.628  0.00890 ** \neduc         0.1074896  0.0141465   7.598 1.94e-13 ***\nexper        0.0415665  0.0131752   3.155  0.00172 ** \nexpersq     -0.0008112  0.0003932  -2.063  0.03974 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6664 on 424 degrees of freedom\nMultiple R-squared:  0.1568,\tAdjusted R-squared:  0.1509 \nF-statistic: 26.29 on 3 and 424 DF,  p-value: 1.302e-15\n```\n\n\n:::\n:::\n\n\n````{.cell-code}\n```{{r, results='asis'}}\nlibrary(\"xmerit\") # give you pretty equation\n```\n````\n\n```\nWarning: replacing previous import 'stats::filter' by 'dplyr::filter' when\nloading 'xmerit'\n```\n\n```\nWarning: replacing previous import 'stats::lag' by 'dplyr::lag' when loading\n'xmerit'\n```\n\n````{.cell-code}\n```{{r, results='asis'}}\nlx.out <- xmerit::lx.est(\n  lm.mod = mod_origin,\n  lm.dt = mroz, inf = c(\"over\",\"fit\",\"Ftest\"))\n```\n````\n\n$$\\begin{equation}\n\\begin{alignedat}{999}\n&\\widehat{lwage}=&&-0.52&&+0.11educ_i&&+0.04exper_i\\\\ \n&(s)&&(0.1986)&&(0.0141)&&(0.0132)\\\\ \n&(t)&&(-2.63)&&(+7.60)&&(+3.15)\\\\ \n&(cont.)&&-0.00expersq_i && &&\\\\ \n&(s)&&(0.0004) && &&\\\\ \n&(t)&&(-2.06) && &&\\\\ \n&(over)&&n=428&&\\hat{\\sigma}=0.6664 &&\\\\ \n&(fit)&&R^2=0.1568&&\\bar{R}^2=0.1509 &&\\\\ \n&(Ftest)&&F^*=26.29&&p=0.0000 &&\n\\end{alignedat}\n\\end{equation}$$\n\n\n\n\n## conclusion\n",
+    "supporting": [
+      "workingpaper_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

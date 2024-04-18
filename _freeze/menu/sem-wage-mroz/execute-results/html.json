@@ -1,0 +1,15 @@
+{
+  "hash": "741049113165b73c355d0ab28b510aa7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"SEM Application (mroz)\"\nsubtitle: \"Labor market of married, Working Women\"\n---\n\n\n## Case Description\n\nLet's consider the labor market for married women already in the workforce.\n\nWe will use the data on working, married women in `wooldridge::mroz` to estimate the labor supply and wage demand equations \nby 2SLS. \n\nThe full set of instruments includes `educ`, `age`, `kidslt6`, `nwifeinc`, `exper`, and `exper2`. \n\n\n## Models setting\n\n### The structrual equations\n\n$$\n\\begin{aligned}\n\\text { hours } & =\\alpha_1 \\log ( wage)+\\beta_{10}+\\beta_{11} { educ }+\\beta_{12} age+\\beta_{13}  { kidslt6 } &&\\\\\n&+\\beta_{14} { nwifeinc }+u_1  &&\\text{(supply)}\\\\\n \\log ({ wage }) &=\\alpha_2 { hours }+\\beta_{20}+\\beta_{21} { educ }+\\beta_{22} { exper }  +\\beta_{23} { exper }^2+ u_2 && \\quad \\text{(demand)}\n\\end{aligned}\n$$\n\n- In the demand function, we write the wage offer as a function of hours and the usual productivity variables. \n\n- All variables except `hours` and `log(wage)` are assumed to be exogenous. \n\n- `educ` might be correlated with omitted `ability` in either equation. Here, we just ignore the omitted ability problem.\n\n### The reduced equations\n\n$$\n\\begin{alignedat}{8}\n\\text { hours } & =\\pi_{10}+\\pi_{11} { educ }+\\pi_{12} age+\\pi_{13}  { kidslt6 }  +\\pi_{14} { nwifeinc }\\\\\n&+\\pi_{15} { exper }  +\\pi_{16} {exper}^2 +v_1  \\\\\n \\log ({ wage }) &=\\pi_{20}+\\pi_{21} { educ }+\\pi_{22} age+\\pi_{23}  { kidslt6 }  +\\pi_{24} { nwifeinc } \\\\\n &+\\pi_{25} { exper }  +\\pi_{26} {exper}^2+ v_2\n\\end{alignedat}\n$$\n\n## Reproducible Sources\n\n**Wooldridge, J.M. Introductory econometrics: a modern approach[M].** Seventh edition. Australia: Cengage, 2020.\n\n- Example 16.5: labor Supply of married, Working Women\n\n## Learning Targets\n\na. Understand the nature of `SEM`.\n\nb. Know the steps of running TSLS method.\n\nc. Be familiar with R package function `systemfit::systemfit()`.\n\n## Exercise Materials \n\nYou can find all the exercise materials in this project under the file directory:\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\nD:/github/course-emiii-accompany/sem-wage-mroz\n└── code-sem-mroz.R\n```\n\n\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

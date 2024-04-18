@@ -14,7 +14,7 @@ website:
     left:
       - href: index.qmd
         text: Preface
-      - href: menu/projects-intro.qmd
+      - href: menu/project-prepare.qmd
         text: Projects
   
   sidebar:
@@ -24,11 +24,12 @@ website:
       collapse-level: 2
       contents:
         # navigation items
-        - menu/projects-intro.qmd
+        - menu/project-prepare.qmd
         - section: "Tasks"
           contents:
             - menu/iv-wage-mroz.qmd
             - menu/iv-wage-card.qmd
+            - menu/sem-wage-mroz.qmd
 
 format:
   html:

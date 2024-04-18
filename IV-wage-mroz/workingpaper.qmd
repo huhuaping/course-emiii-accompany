@@ -1,0 +1,163 @@
+---
+title: "my first paper"
+author: "Kevin Hu"
+format: 
+  html:
+    toc: true
+---
+
+## introduction
+
+## literature
+
+## case analysis
+
+### preparation
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+# load basic pkgs
+source(here::here("R/load-pkg-basic.R"))
+
+# load other necessary packages 
+library("wooldridge")  # data sets
+
+mroz <- wooldridge::mroz %>%
+  as_tibble() %>%
+  select(wage, educ,exper, 
+         fatheduc,motheduc,everything()) %>%
+  filter(!is.na(wage))
+
+```
+
+
+
+
+### scatter
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "the scatter of educ and lwage"
+### ==== Wage example: the scatter ====
+
+mroz %>%
+  ggplot(aes(educ, lwage))+
+  geom_point(size=3) +
+  labs(x= "educ", y="log(wage)") +
+  theme(text = element_text(size=16))
+```
+
+
+### OLS results
+
+```{r}
+
+form_base <- "lwage ~ educ + exper + expersq"
+
+fit_ols <- lm(formula = form_base,data = mroz)
+summary(fit_ols)
+
+
+mod_origin <- formula("lwage ~ educ +exper+expersq")
+ols_origin <- lm(formula = mod_origin, 
+                 data = mroz)
+# summary(ols_origin)
+```
+
+```{r, results='asis'}
+library("xmerit") # give you pretty equation
+lx.out <- xmerit::lx.est(
+  lm.mod = mod_origin, lm.n =2,
+  opt = c("s", "t", "p"),
+  lm.dt = mroz, inf = c("over","fit","Ftest"))
+```
+
+
+$$\begin{equation}
+\begin{alignedat}{999}
+&\widehat{lwage}=&&-0.52&&+0.11educ_i\\ 
+&(s)&&(0.1986)&&(0.0141)\\ 
+&(t)&&(-2.63)&&(+7.60)\\ 
+&(p)&&(0.0089)&&(0.0000)\\ 
+&(cont.)&&+0.04exper_i&&-0.00expersq_i\\ 
+&(s)&&(0.0132)&&(0.0004)\\ 
+&(t)&&(+3.15)&&(-2.06)\\ 
+&(p)&&(0.0017)&&(0.0397)\\ 
+&(over)&&n=428&&\hat{\sigma}=0.6664\\ 
+&(fit)&&R^2=0.1568&&\bar{R}^2=0.1509\\ 
+&(Ftest)&&F^*=26.29&&p=0.0000
+\end{alignedat}
+\end{equation}$$
+
+### TSLS
+
+
+We will use three IVs: motheduc, fatheduc, huseudc
+
+the stage 1 model:
+
+$$
+educ = \gamma_0 +\gamma_1 exper + \gamma_1 expersqr +\theta_1 motheduc + \theta_2 fatheduc + \theta_3 huseduc + v_i
+$$
+
+### Weak IV test (Restricted F-test)
+
+```{r}
+#OLS estimation firstly
+
+model_hus <- formula(educ~ exper +expersq + motheduc + fatheduc+ huseduc)
+
+lm.hus <- lm(formula = model_hus, data = mroz)
+
+summary(lm.hus)
+
+```
+
+
+```{r}
+library("car")
+
+# restricted F-test
+(constrain_test1 <- linearHypothesis(
+  model = lm.hus, c("motheduc=0", "fatheduc=0", "huseduc=0")
+  ))
+# obtain F statistics
+F_r1 <- constrain_test1$F[[2]]
+```
+
+
+### Cragg-F test
+
+```{r}
+# filter samples
+mroz1 <- wooldridge::mroz %>%
+  filter(wage>0, inlf==1)
+# set parameters
+N <- nrow(mroz1)
+G <- 2 
+B <- 2
+L <- 2 
+# for endogenous variables
+x1 <- resid(lm( mtr ~ kidslt6 + nwifeinc, data = mroz1))
+x2 <- resid(lm( educ ~ kidslt6 + nwifeinc, data = mroz1))
+# for instruments
+z1 <-resid(lm(motheduc ~ kidslt6 + nwifeinc, data = mroz1))
+z2 <-resid(lm(fatheduc ~ kidslt6 + nwifeinc, data=mroz1))
+# column bind
+X <- cbind(x1,x2)
+Y <- cbind(z1,z2)
+# calculate Canonical correlation
+rB <- min(cancor(X,Y)$cor)
+# obtain the F statistics
+CraggDonaldF <- ((N-G-L)/L)/((1-rB^2)/rB^2)
+```
+
+
+
+### IV exogeneity test(over-identifiction test)
+
+
+## conclusion

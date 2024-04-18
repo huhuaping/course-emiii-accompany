@@ -1,16 +1,16 @@
 # load necessary R  packages
 
 # system
-library(rmarkdown)
-library(renv)       # package management
-library(yaml)       # quarto project
-library(fs)         # file system management
-library(here)       # relative path
+library("rmarkdown")
+library("renv")       # package management
+library("yaml")       # quarto project
+library("fs")         # file system management
+library("here")       # relative path
 
 # basic pkgs
-library(tidyverse)  # most useful
-library(magrittr)   # pipe %>%
-library(knitr)      # R render engine
+library("tidyverse")  # most useful
+library("magrittr")   # pipe %>%
+library("knitr")      # R render engine
 
 # read file
 library(openxlsx)  # for excel file

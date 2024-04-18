@@ -1,0 +1,113 @@
+---
+title: "Requirements"
+---
+
+## Step 1/3：Prepare Software 
+
+You need install two software (Both can download from <https://posit.co/download/rstudio-desktop/>):
+
+- `R` is an open source (FREE) programming language.
+
+- `Rstudio` (Also FREE) is an IDE (Integrated Development Environment) which will help you coding more efficiently.  
+
+
+
+## Step 2/3：Following Course Project
+
+I create a course project of "Econometrics III Accompany", with which students in my " Advanced Econometrics" class can do some programming exercises and make class examples reproducible.
+
+::: {.callout-note}
+
+- This project is under building and will iterate regularly.
+
+- I create a project repository(<https://github.com/huhuaping/course-emiii-accompany>) and host it at <https://github.com/> publicly.
+
+- For those students in china, you can also access the synchronous repository (<https://gitee.com/kevinhhp/course-emiii-accompany>).
+
+:::
+
+There are two ways to get these project files into you PC/Laptop:
+
+- (Recommended) You can download the **".zip"** file by click "Download" button after you click the URL show before.
+
+- Use tools like `gitbash` to **clone** or **fork** the whole project.
+
+
+Finally, the project directory structure will be shows as bellow:
+
+```{r}
+#| echo: false
+# show files tree
+#fs::dir_ls(path = "D:/github/course-emiii-accompany")
+fs::dir_tree(path = "D:/github/course-emiii-accompany",
+             recurse = 1)
+```
+
+
+## Step 3/3：Install R packages
+
+R is a function-based object-oriented programming language. When executing R code commands, various R packages are often used to achieve specific programming goals. 
+
+After you have downloaded the project file to your local computer (Step 2/3), you can open the project with Rstudio (Step 1/3), then open 'R/load-pkg-basic.R'(see below) to see the relevant R packages needed for this project and install them.
+
+```{r filename="R/load-pkg-basic.R"}
+#| eval: false
+#| echo: true
+
+# load necessary R  packages
+
+# system
+library(rmarkdown)
+library(renv)       # package management
+library(yaml)       # quarto project
+library(fs)         # file system management
+library(here)       # relative path
+
+# basic pkgs
+library(tidyverse)  # most useful
+library(magrittr)   # pipe %>%
+library(knitr)      # R render engine
+
+# read file
+library(openxlsx)  # for excel file
+library(foreign)   # for stata file
+
+# viz
+library(ggplot2)       # graph
+library(DT)            # DT table
+library(scales)        # tidy numbers
+library(webshot2)      # snapshot
+library(htmlwidgets)   # interactivity
+#library(fontawesome)
+
+# github repo
+#renv::install("KWB-R/kwb.utils")
+#renv::install("huhuaping/xmerit")  # developed by `Huhuaping`
+#library(xmerit)                    # export Latex equation
+```
+
+::: {.callout-tip}
+
+To put it simply, R packages come from a few main sources:
+
+- The base package by the R core team
+
+- R packages developed by the R community (widely published on github and other hosting platforms)
+
+- Other source of R packages
+
+:::
+
+How to install these R packages?
+
+Solution 1 (**Not recommend**): use `install.packages("foo")` to install all packages one by one. 
+
+Solution 2 (**Strongly recommend**) :  use `renv` package management tool chain!
+
+- Open the course project with `Rstudio` (double click `course-emiii-accompany.Rproj`). Then you can write and run R command in panel `Console` below the software window.
+
+- First, write and run R command `install.packages("renv")` 
+
+- Then, write and run R command `library(renv)`
+
+- Finally, write and run R command `renv::active()` and `renv::restore()`

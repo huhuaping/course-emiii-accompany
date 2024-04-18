@@ -1,5 +1,5 @@
 ---
-title: "IV Application (I)"
+title: "IV Application (mroz)"
 subtitle: "Mother and father as IVs for education"
 ---
 
@@ -43,7 +43,7 @@ You can find all the exercise materials in this project under the file directory
 #| echo: false
 # show files tree
 fs::dir_tree(path = here::here("IV-wage-mroz"),
-             recurse = TRUE)
+             recurse = 1)
 ```
 
 

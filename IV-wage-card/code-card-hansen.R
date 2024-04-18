@@ -10,6 +10,7 @@ require(AER)
 require(ivmodel) # for LIML fit
 
 # read data
+## change the correct path  by youself !!!
 file_path <- "IV-wage-card/card1995.dta"
 card1995 <- haven::read_dta(file_path) 
 
@@ -203,7 +204,7 @@ out_stage2 <- map2_df(.x = mod_list,
 terms_all <-c('(Intercept)','edu','exp','exp2','black','south','urban') 
 
 tab12.1 <- tidy.dt(df = out_stage2, fct.level = terms_all,
-        caption = "第二阶段回归估计结果",
+        caption = "The stage 2 results for lwage",
         isEscaped = FALSE,
         opt_len = 15)
 
@@ -288,3 +289,30 @@ tab12.2 <- tidy.dt(df = out_stage1, fct.level = terms_all,
                    caption = "第一阶段回归估计结果",
                    isEscaped = FALSE,
                    opt_len = 15)
+
+
+# ==== chpt 12.29 Endogeneity test ====
+
+## reduced function for endogenous education
+red_pp <- formula(edu ~ exp + exp2 + black + south + urban + public + private)
+fit_red_pp<- lm(formula = red_pp, data = tbl_reg)
+
+## extract residual u2 and conbind new dataset
+resid_pp <- data.frame(resid_pp = resid(fit_red_pp))
+tbl_pp <- cbind(tbl_reg, resid_pp)
+
+## control function OLS estimation
+control_pp <- formula(lwage ~ edu +exp + exp2 + black + south + urban + resid_pp)
+fit_control_pp <- lm(formula = control_pp, data = tbl_pp)
+smry_control_pp <- summary(fit_control_pp)
+
+## extract t statistics of alpha
+t_star_resid <- pull(
+  as_tibble(t(smry_control_pp$coefficients[,"t value"])), 
+  "resid_pp")
+
+## calculate equivalent F statistics
+
+restricted_F_pp <- linearHypothesis(model = fit_control_pp, "resid_pp=0")
+F_star_resid <- restricted_F_pp$F[2]
+p_F_resid <- restricted_F_pp$`Pr(>F)`[2]

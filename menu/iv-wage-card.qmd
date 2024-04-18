@@ -1,5 +1,5 @@
 ---
-title: "IV Application (II)"
+title: "IV Application (card)"
 subtitle: "College proximity as IVs for education"
 ---
 
@@ -58,6 +58,67 @@ df_vars %>%
   knitr::kable(., align = 'c', caption = 'variables and definition')
 ```
 
+## Models
+
+### Origin model
+
+The origin model is
+
+$$
+\begin{aligned}
+  lwage & = \hat{\alpha}_0 +\hat{\alpha}_1 {educ} + \hat{\alpha}_3 exp +\hat{\alpha}_4 exp2 \\
+  & +\hat{\alpha}_5 black +\hat{\alpha}_6 south +\hat{\alpha}_7 urban + u_i  
+\end{aligned}
+$$
+
+### TSLS1: `edu` V.S. `college`
+
+we will use `college` as instruments for `educ` in our IV model setting.
+
+$$\begin{cases}
+  \begin{align}
+  {edu} &= \hat{\gamma}_0 +\hat{\gamma}_1exp + \hat{\gamma}_2exp2 + \hat{\gamma}_3black + \hat{\gamma}_4south + \hat{\gamma}_5urban + \hat{\theta}_1college +v_i && \text{(stage 1)}\\
+  lwage & = \hat{\eta}_1 +\hat{\eta}_2\widehat{edu} + \hat{\eta}_3exp +\hat{\eta}_4exp2 +\hat{\eta}_5 black +\hat{\eta}_6 south +\hat{\eta}_7 urban+ e_i  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+### TSLS2: (`edu`,`exp`,`exp2`)  V.S. (`college`, `age`, `age2`)
+
+we use (`college`, `age`, `age2`) as instruments for (`edu`,`exp`,`exp2`) in our IV model setting.
+
+$$\begin{cases}
+  \begin{align}
+  {edu} &= \hat{\gamma}_0 +\hat{\gamma}_1age + \hat{\gamma}_2age2 + \hat{\gamma}_3black + \hat{\gamma}_4south + \hat{\gamma}_5urban + \hat{\theta}_1college +v_{1i} && \text{(1 of stage 1)}\\
+  {exp} &= \hat{\lambda}_0 +\hat{\lambda}_1age + \hat{\lambda}_2age2 + \hat{\lambda}_3black + \hat{\lambda}_4south + \hat{\lambda}_5urban + \hat{\lambda}_1college +v_{2i} && \text{(2 of stage 1)}\\
+  {exp2} &= \hat{\delta}_0 +\hat{\delta}_1age + \hat{\delta}_2age2 + \hat{\delta}_3black + \hat{\delta}_4south + \hat{\delta}_5urban + \hat{\delta}_1college +v_{3i} && \text{(3 of stage 1)}\\
+  lwage & = \hat{\eta}_1 +\hat{\eta}_2\widehat{edu} + \hat{\eta}_3exp +\hat{\eta}_4exp2 +\hat{\eta}_5 black +\hat{\eta}_6 south +\hat{\eta}_7 urban+ e_i  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+### TSLS3: `edu` V.S. (`public`,`private`)
+
+we use both (`public`,`private`) as instruments for `educ` in our IV model setting.
+
+$$\begin{cases}
+  \begin{align}
+  {edu} &= \hat{\gamma}_0 +\hat{\gamma}_1exp + \hat{\gamma}_2exp2 + \hat{\gamma}_3black + \hat{\gamma}_4south + \hat{\gamma}_5urban + \hat{\theta}_1public + \hat{\theta}_2private +v_i && \text{(stage 1)}\\
+  lwage & = \hat{\eta}_1 +\hat{\eta}_2\widehat{edu} + \hat{\eta}_3exp +\hat{\eta}_4exp2 +\hat{\eta}_5 black +\hat{\eta}_6 south +\hat{\eta}_7 urban+ e_i  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
+### TSLS4: (`edu`, `exp`,`exp2`) V.S. (`public`,`private`,`age`,`age2`)
+
+we use both (`public`,`private`,`age`,`age2`) as instruments for (`edu`, `exp`,`exp2`) in our IV model setting.
+
+$$\begin{cases}
+  \begin{align}
+    {edu} &= \hat{\gamma}_0 +\hat{\gamma}_1age + \hat{\gamma}_2age2 + \hat{\gamma}_3black + \hat{\gamma}_4south + \hat{\gamma}_5urban + \hat{\theta}_1public + \hat{\theta}_2private +v_{1i} && \text{(1 of stage 1)}\\
+  {exp} &= \hat{\lambda}_0 +\hat{\lambda}_1age + \hat{\lambda}_2age2 + \hat{\lambda}_3black + \hat{\lambda}_4south + \hat{\lambda}_5urban + \hat{\lambda}_1public + \hat{\lambda}_2private +v_{2i} && \text{(2 of stage 1)}\\
+  {exp2} &= \hat{\delta}_0 +\hat{\delta}_1age + \hat{\delta}_2age2 + \hat{\delta}_3black + \hat{\delta}_4south + \hat{\delta}_5urban + \hat{\delta}_1public + \hat{\delta}_2private +v_{3i} && \text{(3 of stage 1)}\\
+  lwage & = \hat{\eta}_1 +\hat{\eta}_2\widehat{edu} + \hat{\eta}_3exp +\hat{\eta}_4exp2 +\hat{\eta}_5 black +\hat{\eta}_6 south +\hat{\eta}_7 urban+ e_i  && \text{(stage 2)}
+  \end{align}
+\end{cases}$$
+
 ## Reproducible Sources
 
 **Hansen, B.  Econometrics[M].** Princeton: Princeton University Press, 2022. **Chapter 12:** Instrumental Variables. 
@@ -65,6 +126,7 @@ df_vars %>%
 - Table 12.1: Instrumental Variable Wage Regressions
 
 - Table 12.2: Reduced Form Regressions
+
 
 ## Learning Targets
 
@@ -82,5 +144,5 @@ You can find all the exercise materials in this project under the file directory
 #| echo: false
 # show files tree
 fs::dir_tree(path = here::here("IV-wage-card"),
-             recurse = TRUE)
+             recurse = 1)
 ```
