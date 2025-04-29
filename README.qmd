@@ -1,7 +1,6 @@
 ---
 title: "Readme"
-execute:
-  - keep-md: true
+format: gfm
 ---
 
 
