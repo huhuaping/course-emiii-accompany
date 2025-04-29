@@ -4,6 +4,8 @@ title: "Introduction"
 
 This site is served for project of "Econometrics III Accompany", with which My students in my " Advanced Econometrics" class can do some programming exercises and make class examples reproducible.
 
+I host the whole project's website with Netlify (see <https://emiii-accompany.netlify.app>), and the source code is hosted on GitHub.
+
 <!-- test gitee-->
 
 ::: {.callout-note title="git repository"}
