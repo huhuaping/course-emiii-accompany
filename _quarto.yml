@@ -10,13 +10,19 @@ execute:
 
 website:
   title: "EM III Accompany"
+  favicon: pic/logo/hu-text-removebg.png
   navbar:
     left:
       - href: index.qmd
         text: Preface
       - href: menu/project-prepare.qmd
         text: Projects
-  
+    right:
+      - icon: stack-overflow
+        text: "主站|Kevin Hu"
+        href: https://www.huhuaping.com
+        target: _blank  
+
   sidebar:
     - title: "Projects"
       style: "docked"

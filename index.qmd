@@ -6,15 +6,28 @@ This site is served for project of "Econometrics III Accompany", with which My s
 
 <!-- test gitee-->
 
-::: {.callout-note}
+::: {.callout-note title="git repository"}
 
-- This project is under building and will irritated regularly.
+This project is under building and will develop regularly.
 
 - I create a project repository(<https://github.com/huhuaping/course-emiii-accompany>) and host it at <https://github.com/> publicly.
 
 - For those students in china, you can also access the synchronous repository (<https://gitee.com/kevinhhp/course-emiii-accompany>).
 
 :::
+
+
+::: {.callout-note title="Posit Cloud online project"}
+
+You can also access the Posit online R project at <https://posit.cloud/content/10273624>.
+
+- You need subscribe to Posit Cloud to access the online project (recomend use your github account to subscribe).
+- The online project is host by Posit Cloud.
+- You can use the online project to do some programming exercises and make class examples reproducible.
+- ALL needed enviroment and packages have been pre-installed in the online project.  
+
+:::
+
 
 
 ::: {.callout-tip}
