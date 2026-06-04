@@ -11,4 +11,7 @@
 # publication
 _site/**
 
+# renv.zip
+renv.zip
+
 

@@ -1,5 +1,5 @@
 # load basic pkgs
-#source("R/load-pkg-basic.R")
+source("R/load-pkg-basic.R")
 require(magrittr)
 require(tidyverse)
 require(broom)
@@ -9,13 +9,18 @@ require(AER)
 require(car)
 # load other necessary packages 
 library("wooldridge")  # data sets
+# install.packages("DT")
+require(DT)
 
+# load data set and clean it 
 mroz <- wooldridge::mroz %>%
   as_tibble() %>%
-  select(wage, educ,exper, 
+  select(lwage, wage, educ,exper, 
          fatheduc,motheduc,everything()) %>%
-  filter(!is.na(wage))
+  filter(!is.na(lwage))
 
+# show the summary of the data set
+summary(mroz)
 
 # write.xlsx(mroz,"data/Table-11-mroz-filter.xlsx")
 n <- nrow(mroz)
@@ -23,7 +28,7 @@ n <- nrow(mroz)
 # ==== 17.2 Estimation problem with endogeneity====
 
 ### ====wage example: All variables in dataset ======
-
+# install.packages("DT")
 vars_label<- read.delim(
   file = "IV-wage-mroz/mroz-var-label.txt",
   header = T,sep=":") %>% 
@@ -37,7 +42,7 @@ tab_vars %>%
   add_column(index = 1:nrow(.), .before = "vars") %>%
   select(-group) %>%
   #filter(vars %in% c("wage", "fatheduc", "educ")) %>%
-  datatable(caption = "variables and labels",
+  DT::datatable(caption = "variables and labels",
             rownames = T,
             options = list(
               pageLength=7,
@@ -53,7 +58,7 @@ mroz <- mroz %>%
   select(lwage, educ, exper, expersq, fatheduc, motheduc) %>%
   add_column(id=1:n, .before = "lwage") 
 
-mroz %>% datatable(caption = str_c("dataset n=(",n,")"),
+mroz %>% DT::datatable(caption = str_c("dataset n=(",n,")"),
                    rownames = T,
                    options = list(
                      pageLength=8,
@@ -76,7 +81,7 @@ mroz %>%
 
 ### ==== Wage example: use OLS method directly====
 
-mod_origin <- formula(lwage ~ educ +exper+expersq)
+mod_origin <- formula(lwage ~ educ +exper +expersq)
 ols_origin <- lm(formula = mod_origin, 
                  data = mroz)
 summary(ols_origin)

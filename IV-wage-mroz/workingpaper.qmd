@@ -1,10 +1,14 @@
 ---
 title: "my first paper"
 author: "Kevin Hu"
-format: 
-  html:
-    toc: true
+format: docx
+  
 ---
+
+#  abstract
+
+This paper is a simple introduction to the two-stage least squares (**TSLS**) method, which is used to estimate the parameters of a model when there are endogenous variables. The paper provides an overview of the TSLS method, including its assumptions and limitations, and discusses its applications in various fields such as economics, finance, and social sciences. The paper also presents a case study using real-world data to illustrate the application of the TSLS method and its advantages over traditional ordinary least squares (OLS) regression.
+
 
 ## introduction
 
