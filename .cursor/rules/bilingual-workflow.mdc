@@ -1,0 +1,45 @@
+---
+description: Bilingual workflow — Chinese chat with user, English project artifacts for international students
+alwaysApply: true
+---
+
+# Bilingual Workflow (EM III Accompany)
+
+This project supports **international students** in Advanced Econometrics. Use a strict language split.
+
+## Conversation → Chinese (中文)
+
+- The user may ask in **中文**; **reply in 中文** for explanations, summaries, questions, and status updates.
+- Do not switch chat language to English unless the user explicitly requests it.
+
+## Project Artifacts → English
+
+All student-facing and repository content must be **English**:
+
+| Applies to | Examples |
+|------------|----------|
+| Quarto / Markdown | `index.qmd`, `menu/*.qmd`, `README.md` — titles, headings, body text, callouts |
+| R code | comments, variable labels, plot axes, `DT` captions, `kable` titles |
+| Config | `_quarto.yml` navbar/sidebar labels, YAML `title` / `subtitle` |
+| Data labels | `.txt` label files, exported table headers |
+| Git | commit messages and PR text (English unless user asks otherwise) |
+
+## Editing Rules
+
+1. **New content** — write in English from the start.
+2. **Existing Chinese content** — translate to English as part of the edit; avoid leaving mixed-language student-facing text.
+3. **LaTeX / math** — standard econometrics notation (IV, 2SLS, TSLS, SEM, OLS); prose around formulas stays English.
+4. **Chat vs files** — explain changes in 中文 in chat; never put 中文 explanations into project files unless the user explicitly requests bilingual artifacts.
+
+## Quick Examples
+
+```
+User: 请更新 index.qmd 的介绍
+→ Reply in 中文; rewrite index.qmd body in English
+
+User: 给 code-mroz.R 加注释
+→ Reply in 中文; comments in English: # Fit first-stage regression
+
+User: 侧边栏加一个 SEM 页面
+→ Reply in 中文; _quarto.yml text: "SEM Application"; page content in English
+```
