@@ -15,3 +15,5 @@ _site/**
 renv.zip
 
 
+
+**/*.quarto_ipynb
